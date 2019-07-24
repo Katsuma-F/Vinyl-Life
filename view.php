@@ -14,25 +14,23 @@
 
 <body style="background-color: #EFEFEF">
   <!-- Header -->
-  <header>
-    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD">
-      <div class="container">
-        <a class="navber-brand text-dark" href="/">Vinyl-Life_img</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainMenu">
-          <ul class="navbar-nav"></ul>
-          <ul class="navbar-nav ml-auto text-dark">
-            <form class="form-inline ml-auto">
-              <a href="" class="btn btn-secondary">ログイン</a>
-              <a href="" class="btn btn-danger">新規登録</a>
-            </form>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD">
+    <div class="container">
+      <a class="navber-brand text-dark" href="/">Vinyl-Life_img</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav"></ul>
+        <ul class="navbar-nav ml-auto text-dark">
+          <form class="form-inline ml-auto">
+            <a href="" class="btn btn-secondary">ログイン</a>
+            <a href="" class="btn btn-danger">新規登録</a>
+          </form>
+        </ul>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
 
   <!-- Footer -->
   <div class="footer-upward">© Vinyl-Life</div>

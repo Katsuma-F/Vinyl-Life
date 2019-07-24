@@ -14,40 +14,39 @@
 
 <body style="background-color: #EFEFEF">
   <!-- Header -->
-  <header>
-    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD">
-      <div class="container">
-        <a class="navber-brand text-dark" href="/">Vinyl-Life_img</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainMenu">
-          <ul class="navbar-nav"></ul>
-          <ul class="navbar-nav ml-auto text-dark">
-            <form class="form-inline ml-auto">
-              <a href="" class="btn btn-secondary">ログイン</a>
-              <a href="" class="btn btn-danger">新規登録</a>
-            </form>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD">
+    <div class="container">
+      <a class="navber-brand text-dark" href="/">Vinyl-Life_img</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav"></ul>
+        <ul class="navbar-nav ml-auto text-dark">
+          <form class="form-inline ml-auto">
+            <a href="" class="btn btn-secondary">ログイン</a>
+            <a href="" class="btn btn-danger">新規登録</a>
+          </form>
+        </ul>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
   <!-- Top-Heading -->
-  <div class="jumbotron jumbotron-fluid mt-5 cover text-white">
+  <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <center>
         <h1 class="main-message mb-4">今すぐアナログレコードライフを始めよう！</h1>
         <h6 class="sub-message mb-5">アナログレコードが聴ける環境をシェアできるサービスです</h6>
         <form>
           <a href="" class="btn btn-info btn-lg" value="/">
-            <i class="fab fa-twitter mr-1"></i>
+            <i class="fab fa-mail mr-1"></i>
             メールアドレスで新規登録
           </a>
         </form>
       </center>
     </div>
   </div>
+
   <!-- Main -->
   <div class="container">
     <!-- Card-Items -->

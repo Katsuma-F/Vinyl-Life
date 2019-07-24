@@ -8,13 +8,12 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
   <title>Vinyl-Life</title>
 </head>
 
 <body style="background-color: #EFEFEF">
   <!-- Header -->
-  <header>
     <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD">
       <div class="container">
         <a class="navber-brand text-dark" href="/">Vinyl-Life_img</a>
@@ -32,7 +31,6 @@
         </div>
       </div>
     </nav>
-  </header>
 
   <!-- Footer -->
   <div class="footer-upward">© Vinyl-Life</div>
