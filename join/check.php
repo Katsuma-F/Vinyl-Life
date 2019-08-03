@@ -32,6 +32,24 @@
       </div>
     </nav>
 
+    <div class="container">
+      <div class="mx-auto w-75">
+        <h1 style="margin-bottom: 35px;">会員登録</h1>
+        <dl>
+          <dt>ユーザー名</dt>
+          <dd></dd>
+          <dt>メールアドレス</dt>
+          <dd></dd>
+          <dt>パスワード</dt>
+          <dd></dd>
+          <dt>プロフィール写真</dt>
+          <dd></dd>
+        </dl>
+        <a href="./index.php">書き直す</a>
+        <button type="submit" class="btn btn-danger" value="登録する">登録する</button>
+      </div>
+    </div>
+
   <!-- Footer -->
   <div class="footer-upward">© Vinyl-Life</div>
   <div class="footer-lower">
