@@ -15,7 +15,9 @@
 <body style="background-color: #EFEFEF">
   <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD">
     <div class="container">
-      <a class="navber-brand text-dark" href="/">Vinyl-Life_img</a>
+      <a class="navber-brand text-dark" href="/">
+        Vinyl-Life_img
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,7 +35,29 @@
 
   <!-- 会員登録フォーム -->
   <div class="container">
-    <p class="lead-form">会員登録</p>
+    <div class="mx-auto w-75">
+      <form method="post">
+        <h1 style="margin-bottom: 35px;">会員登録</h1>
+        <div class="form-group">
+          <label>ユーザー名</label>
+          <input type="text" class="form-control" name="user_name" required />
+        </div>
+        <div class="form-group">
+          <label>メールアドレス</label>
+          <input type="email" class="form-control" name="email" required />
+        </div>
+        <div class="form-group">
+          <label>パスワード</label>
+          <input type="password" class="form-control" name="password" required />
+        </div>
+        <div class="form-group">
+          <label>プロフィール写真</label>
+          <input type="file">
+        </div>
+        <button type="submit" class="btn btn-danger" value="入力内容を確認する">入力内容を確認する</button>
+        <a href="../index.php">ログインはこちら</a>
+      </form>
+    </div>
   </div>
 
   <!-- Footer -->
