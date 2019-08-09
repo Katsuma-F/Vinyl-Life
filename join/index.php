@@ -55,7 +55,7 @@
           <input type="file">
         </div>
         <button type="submit" class="btn btn-danger" value="入力内容を確認する">入力内容を確認する</button>
-        <a href="../index.php">ログインはこちら</a>
+        <a href="./index.php">ログインはこちら</a>
       </form>
     </div>
   </div>
