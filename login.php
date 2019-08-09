@@ -32,6 +32,22 @@
     </div>
   </nav>
 
+  <div class="container">
+    <div class="mx-auto w-75">
+      <form method="post">
+        <h1>ログイン</h1>
+        <div class="form-group">
+          <input type="email" class="form-control" name="email" placeholder="メールアドレス" required />
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name="password" placeholder="パスワード" required />
+        </div>
+        <button type="submit" class="btn btn-danger" name="login">ログインする</button>
+        <a href="./join/index.php">会員登録はこちら</a>
+      </form>
+    </div>
+  </div>
+
   <!-- Footer -->
   <div class="footer-upward">© Vinyl-Life</div>
   <div class="footer-lower">
