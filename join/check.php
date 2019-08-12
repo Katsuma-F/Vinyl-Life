@@ -45,7 +45,7 @@
           <dt>プロフィール写真</dt>
           <dd></dd>
         </dl>
-        <a href="./index.php">書き直す</a>
+        <a href="index.php">書き直す</a>
         <button type="submit" class="btn btn-danger" value="登録する">登録する</button>
       </div>
     </div>
