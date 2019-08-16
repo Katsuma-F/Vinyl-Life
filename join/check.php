@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['join'])) {
+  header('Location: index.php');
+  exit();
+}
+
+?>
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -37,16 +47,20 @@
         <h1 style="margin-bottom: 35px;">会員登録</h1>
         <dl>
           <dt>ユーザー名</dt>
-          <dd></dd>
+          <dd><?php print(htmlspecialchars($_SESSION['join']['name'], ENT_QUOTES)); ?></dd>
           <dt>メールアドレス</dt>
-          <dd></dd>
+          <dd><?php print(htmlspecialchars($_SESSION['join']['email'], ENT_QUOTES)); ?></dd>
           <dt>パスワード</dt>
-          <dd></dd>
+          <dd>【表示されません】</dd>
           <dt>プロフィール写真</dt>
-          <dd></dd>
+          <dd>
+            <?php if ($_SESSION['join']['image'] != ''): ?>
+              <img src="../user_picture/<?php print(htmlspecialchars($_SESSION['join']['image'], ENT_QUOTES)); ?>">
+            <?php endif; ?>
+          </dd>
         </dl>
-        <a href="index.php">書き直す</a>
-        <button type="submit" class="btn btn-danger" value="登録する">登録する</button>
+        <a href="index.php?action=rewrite">&laquo;&nbsp;書き直す</a>
+        <button class="btn btn-danger" type="submit" value="登録する" >登録する</button>
       </div>
     </div>
 
