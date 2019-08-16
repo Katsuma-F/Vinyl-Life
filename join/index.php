@@ -1,3 +1,44 @@
+<?php
+session_start();
+
+if (!empty($_POST)) {
+  if ($_POST['name'] === '') {
+		$error['name'] = 'blank';
+	}
+	if ($_POST['email'] === '') {
+		$error['email'] = 'blank';
+	}
+	if (strlen($_POST['password']) < 4) {
+		$error['password'] = 'length';
+	}
+	if ($_POST['password'] === '') {
+		$error['password'] = 'blank';
+	}
+
+  $fileName = $_FILES['image']['name'];
+  if (!empty($fileName)) {
+    $ext = substr($fileName, -3);
+    if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
+      $error['image'] = 'type';
+    }
+  }
+
+  if (empty($error)) {
+    $image = date('YmdHis') . $_FILES['image']['name'];
+    move_uploaded_file($_FILES['image']['tmp_name'], '../user_picture/' . $image);
+    $_SESSION['join'] = $_POST;
+    $_SESSION['join']['image'] = $image;
+    header('Location: check.php');
+    exit();
+  }
+}
+
+if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
+  $_POST = $_SESSION['join'];
+}
+
+ ?>
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -36,25 +77,43 @@
   <!-- 会員登録フォーム -->
   <div class="container">
     <div class="mx-auto w-75">
-      <form method="post">
+      <form action="" method="post" enctype="multipart/form-data">
         <h1 style="margin-bottom: 35px;">会員登録</h1>
         <div class="form-group">
           <label>ユーザー名</label>
-          <input type="text" class="form-control" name="user_name" required />
+          <input class="form-control" name="name" type="text" value="<?php print(htmlspecialchars($_POST['name'], ENT_QUOTES)); ?>" />
+          <?php if ($error['name'] === 'blank'): ?>
+            <p class="error">*ユーザー名を入力してください</p>
+          <?php endif; ?>
         </div>
         <div class="form-group">
           <label>メールアドレス</label>
-          <input type="email" class="form-control" name="email" required />
+          <input class="form-control" name="email" type="email" value="<?php print(htmlspecialchars($_POST['email'], ENT_QUOTES)); ?>" />
+          <?php if ($error['email'] === 'blank'): ?>
+            <p class="error">*メールアドレスを入力してください</p>
+          <?php endif; ?>
         </div>
         <div class="form-group">
           <label>パスワード</label>
-          <input type="password" class="form-control" name="password" required />
+          <input class="form-control" name="password" type="password" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
+          <?php if ($error['password'] === 'length'): ?>
+            <p class="error">*パスワードは4文字以上で入力してください</p>
+          <?php endif; ?>
+          <?php if ($error['password'] === 'blank'): ?>
+            <p class="error">*パスワードを入力してください</p>
+          <?php endif; ?>
         </div>
         <div class="form-group">
           <label>プロフィール写真</label>
-          <input type="file">
+          <input type="file" name="image" value="test" />
         </div>
-        <button type="submit" class="btn btn-danger" value="入力内容を確認する">入力内容を確認する</button>
+        <input class="btn btn-danger" type="submit" value="入力内容を確認する" />
+        <?php if ($error['image'] === 'type'): ?>
+          <p class="error">*写真は「.jpg」「.gif」「.png」の画像を指定してください</p>
+        <?php endif; ?>
+        <?php if (!empty($error)): ?>
+          <p class="error">*恐れ入りますが、画像を改めて指定してください</p>
+        <?php endif; ?>
         <a href="../index.php">ログインはこちら</a>
       </form>
     </div>
