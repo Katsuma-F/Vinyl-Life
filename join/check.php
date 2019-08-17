@@ -1,11 +1,25 @@
 <?php
 session_start();
+require('../dbconnect.php');
 
 if (!isset($_SESSION['join'])) {
   header('Location: index.php');
   exit();
 }
 
+if (!empty($_POST)) {
+  $statement = $db->prepare('INSERT INTO users SET name=?, email=?, password=?, picture=?, created_at=NOW()');
+  $statement->execute(array(
+    $_SESSION['join']['name'],
+    $_SESSION['join']['email'],
+    sha1($_SESSION['join']['password']),
+    $_SESSION['join']['image']
+  ));
+  unset($_SESSION['join']);
+
+  header('Location: thanks.php');
+  exit();
+}
 ?>
 
 <!doctype html>
@@ -45,22 +59,25 @@ if (!isset($_SESSION['join'])) {
     <div class="container">
       <div class="mx-auto w-75">
         <h1 style="margin-bottom: 35px;">会員登録</h1>
-        <dl>
-          <dt>ユーザー名</dt>
-          <dd><?php print(htmlspecialchars($_SESSION['join']['name'], ENT_QUOTES)); ?></dd>
-          <dt>メールアドレス</dt>
-          <dd><?php print(htmlspecialchars($_SESSION['join']['email'], ENT_QUOTES)); ?></dd>
-          <dt>パスワード</dt>
-          <dd>【表示されません】</dd>
-          <dt>プロフィール写真</dt>
-          <dd>
-            <?php if ($_SESSION['join']['image'] != ''): ?>
-              <img src="../user_picture/<?php print(htmlspecialchars($_SESSION['join']['image'], ENT_QUOTES)); ?>">
-            <?php endif; ?>
-          </dd>
-        </dl>
-        <a href="index.php?action=rewrite">&laquo;&nbsp;書き直す</a>
-        <button class="btn btn-danger" type="submit" value="登録する" >登録する</button>
+        <form action="" method="post">
+          <input type="hidden" name="action" value="submit" />
+          <dl>
+            <dt>ユーザー名</dt>
+            <dd><?php print(htmlspecialchars($_SESSION['join']['name'], ENT_QUOTES)); ?></dd>
+            <dt>メールアドレス</dt>
+            <dd><?php print(htmlspecialchars($_SESSION['join']['email'], ENT_QUOTES)); ?></dd>
+            <dt>パスワード</dt>
+            <dd>【表示されません】</dd>
+            <dt>プロフィール写真</dt>
+            <dd>
+              <?php if ($_SESSION['join']['image'] != ''): ?>
+                <img src="../user_picture/<?php print(htmlspecialchars($_SESSION['join']['image'], ENT_QUOTES)); ?>">
+              <?php endif; ?>
+            </dd>
+          </dl>
+          <a href="index.php?action=rewrite">&laquo;&nbsp;書き直す</a>
+          <button class="btn btn-danger" type="submit" value="登録する">登録する</button>
+        </form>
       </div>
     </div>
 
