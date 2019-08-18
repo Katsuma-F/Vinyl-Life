@@ -35,7 +35,7 @@
   <div class="container">
     <div class="mx-auto w-75">
       <h2>ユーザー登録が完了しました</h2>
-      <a href="../index.php">ログインはこちら</a>
+      <a href="../login.php">ログインはこちら</a>
     </div>
   </div>
 
