@@ -1,3 +1,42 @@
+<?php
+session_start();
+require('dbconnect.php');
+
+if ($_COOKIE['email'] !== '') {
+  $email = $_COOKIE['email'];
+}
+
+if (!empty($_POST)) {
+  $email = $_POST['email'];
+
+  if ($_POST['email'] !== '' && $_POST['password'] !== '') {
+    $login = $db->prepare('SELECT * FROM users WHERE email=? AND password=?');
+    $login->execute(array(
+      $_POST['email'],
+      sha1($_POST['password'])
+    ));
+    $member = $login->fetch();
+
+    if($member) {
+      $_SESSION['id'] = $member['id'];
+      $_SESSION['time'] = time();
+
+      if ($_POST['save'] === 'on') {
+        setcookie('email', $_POST['email'], time()+60*60*24*14);
+      }
+
+      header('Location: index.php');
+      exit();
+    } else {
+      $error['login'] = 'failed';
+    }
+  } else {
+    $error['login'] = 'blank';
+  }
+}
+
+?>
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -34,15 +73,26 @@
 
   <div class="container">
     <div class="mx-auto w-75">
-      <form method="post">
+      <form action="" method="post">
         <h1>ログイン</h1>
         <div class="form-group">
-          <input type="email" class="form-control" name="email" placeholder="メールアドレス" required />
+          <input class="form-control" name="email" type="text" placeholder="メールアドレス" value="<?php print(htmlspecialchars($email, ENT_QUOTES)); ?>" />
+          <?php if ($error['login'] === 'blank'): ?>
+            <p class="error">*メールアドレスとパスワードをご記入ください</p>
+          <?php endif; ?>
+          <?php if ($error['login'] === 'failed'): ?>
+            <p class="error">*ログインに失敗しました。正しくご記入ください</p>
+          <?php endif; ?>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" name="password" placeholder="パスワード" required />
+          <input class="form-control" name="password" type="password" placeholder="パスワード" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
         </div>
-        <button type="submit" class="btn btn-danger" name="login">ログインする</button>
+        <dd>ログイン情報の記録</dd>
+        <dt>
+          <input id="save" name="save" type="checkbox" value="on">
+          <label for="save">次回からは自動的にログインする</label>
+        </dt>
+        <button class="btn btn-danger" name="login" type="submit">ログインする</button>
         <a href="./join/index.php">会員登録はこちら</a>
       </form>
     </div>
