@@ -36,9 +36,9 @@ if (!empty($_POST)) {
   <title>Vinyl-Life</title>
 </head>
 
-<body style="background-color: #EFEFEF">
+<body style="background-color: #EFEFEF;">
   <!-- Header -->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD;">
       <div class="container">
         <a class="navber-brand text-dark" href="/">Vinyl-Life_img</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,13 +82,17 @@ if (!empty($_POST)) {
     </div>
 
   <!-- Footer -->
-  <div class="footer-upward">© Vinyl-Life</div>
-  <div class="footer-lower">
-    <a href="">ホーム</a>
-    <a href="">利用規約</a>
-    <a href="">プライバシーポリシー</a>
-    <a href="" target="_blank">お問い合わせ</a>
-  </div>
+  <footer>
+    <div class="footer-upward">
+      <address>© Vinyl-Life</address>
+    </div>
+    <div class="footer-lower">
+      <a href="">ホーム</a>
+      <a href="">利用規約</a>
+      <a href="">プライバシーポリシー</a>
+      <a href="" target="_blank">お問い合わせ</a>
+    </div>
+  </footer>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
