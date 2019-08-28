@@ -39,7 +39,7 @@
     <div class="container">
       <center>
         <h1 class="main-message mb-4">今すぐアナログレコードライフを始めよう！</h1>
-        <h6 class="sub-message mb-5">アナログレコードが聴ける環境をシェアできるサービスです</h6>
+        <h6 class="sub-message mb-5">アナログレコードを聴くのに必要なセットをシェアするサービスです。</h6>
         <form>
           <a href="join/index.php" class="btn btn-info btn-lg" value="/">
             <i class="fab fa-mail mr-1"></i>
