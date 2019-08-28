@@ -10,9 +10,11 @@
 
   <link rel="stylesheet" href="./css/styles.css">
   <title>Vinyl-Life</title>
+  <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="./folder/all.css">
 </head>
 
-<body style="background-color: #EFEFEF;">
+<body>
   <!-- Header -->
   <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD;">
     <div class="container">
@@ -31,6 +33,7 @@
       </div>
     </div>
   </nav>
+
   <!-- Top-Heading -->
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -53,65 +56,180 @@
     <div class="row">
       <div class="col-12 col-sm-6 col-md-4 col-lg-4">
         <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">タイトル1</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+          <a href="#">
+            <div class="row no-gutters card-area"></div>
+          </a>
+            <div class="title-area">
+              <a href="#" class="title">タイトル1</a>
+            </div>
+            <div class="profile-area">
+              <div class="profile-thum">
+                <a href="#">
+                  <img src="" class="rounded-circle" alt="画像">
+                </a>
+              </div>
+              <div class="profile-username">
+                <a href="#" class="profile-username">ユーザーネーム</a>
+              </div>
+            </div>
+            <div class="description-area">
+              <p class="description">セットの説明。セットの説明。セットの説明。</p>
+            </div>
+            <div class="info-area">
+              <i class="far fa-bookmark"></i>
+              <span class="num">0</span>
+              <i class="fas fa-heart"></i>
+              <span class="num">0</span>
+            </div>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-4">
         <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">タイトル2</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+          <a href="#">
+            <div class="row no-gutters card-area"></div>
+          </a>
+            <div class="title-area">
+              <a href="#" class="title">タイトル2</a>
+            </div>
+            <div class="profile-area">
+              <div class="profile-thum">
+                <a href="#">
+                  <img src="" class="rounded-circle" alt="画像">
+                </a>
+              </div>
+              <div class="profile-username">
+                <a href="#" class="profile-username">ユーザーネーム</a>
+              </div>
+            </div>
+            <div class="description-area">
+              <p class="description">セットの説明。セットの説明。セットの説明。</p>
+            </div>
+            <div class="info-area">
+              <i class="far fa-bookmark"></i>
+              <span class="num">0</span>
+              <i class="fas fa-heart"></i>
+              <span class="num">0</span>
+            </div>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-4">
         <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">タイトル3</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+          <a href="#">
+            <div class="row no-gutters card-area"></div>
+          </a>
+            <div class="title-area">
+              <a href="#" class="title">タイトル3</a>
+            </div>
+            <div class="profile-area">
+              <div class="profile-thum">
+                <a href="#">
+                  <img src="" class="rounded-circle" alt="画像">
+                </a>
+              </div>
+              <div class="profile-username">
+                <a href="#" class="profile-username">ユーザーネーム</a>
+              </div>
+            </div>
+            <div class="description-area">
+              <p class="description">セットの説明。セットの説明。セットの説明。</p>
+            </div>
+            <div class="info-area">
+              <i class="far fa-bookmark"></i>
+              <span class="num">0</span>
+              <i class="fas fa-heart"></i>
+              <span class="num">0</span>
+            </div>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-4">
         <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">タイトル4</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+          <a href="#">
+            <div class="row no-gutters card-area"></div>
+          </a>
+            <div class="title-area">
+              <a href="#" class="title">タイトル4</a>
+            </div>
+            <div class="profile-area">
+              <div class="profile-thum">
+                <a href="#">
+                  <img src="" class="rounded-circle" alt="画像">
+                </a>
+              </div>
+              <div class="profile-username">
+                <a href="#" class="profile-username">ユーザーネーム</a>
+              </div>
+            </div>
+            <div class="description-area">
+              <p class="description">セットの説明。セットの説明。セットの説明。</p>
+            </div>
+            <div class="info-area">
+              <i class="far fa-bookmark"></i>
+              <span class="num">0</span>
+              <i class="fas fa-heart"></i>
+              <span class="num">0</span>
+            </div>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-4">
         <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">タイトル5</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+          <a href="#">
+            <div class="row no-gutters card-area"></div>
+          </a>
+            <div class="title-area">
+              <a href="#" class="title">タイトル5</a>
+            </div>
+            <div class="profile-area">
+              <div class="profile-thum">
+                <a href="#">
+                  <img src="" class="rounded-circle" alt="画像">
+                </a>
+              </div>
+              <div class="profile-username">
+                <a href="#" class="profile-username">ユーザーネーム</a>
+              </div>
+            </div>
+            <div class="description-area">
+              <p class="description">セットの説明。セットの説明。セットの説明。</p>
+            </div>
+            <div class="info-area">
+              <i class="far fa-bookmark"></i>
+              <span class="num">0</span>
+              <i class="fas fa-heart"></i>
+              <span class="num">0</span>
+            </div>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-4">
         <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">タイトル6</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+          <a href="#">
+            <div class="row no-gutters card-area"></div>
+          </a>
+            <div class="title-area">
+              <a href="#" class="title">タイトル6</a>
+            </div>
+            <div class="profile-area">
+              <div class="profile-thum">
+                <a href="#">
+                  <img src="" class="rounded-circle" alt="画像">
+                </a>
+              </div>
+              <div class="profile-username">
+                <a href="#" class="profile-username">ユーザーネーム</a>
+              </div>
+            </div>
+            <div class="description-area">
+              <p class="description">セットの説明。セットの説明。セットの説明。</p>
+            </div>
+            <div class="info-area">
+              <i class="far fa-bookmark"></i>
+              <span class="num">0</span>
+              <i class="fas fa-heart"></i>
+              <span class="num">0</span>
+            </div>
         </div>
       </div>
     </div>
+
     <!-- Pagination -->
     <ul class="pagination">
       <li class="page-item">
