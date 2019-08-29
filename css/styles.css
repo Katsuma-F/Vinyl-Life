@@ -3,6 +3,7 @@ body {
   min-height: 100vh;
   padding-top: 80px;
   padding-bottom: 300px;
+  background-color: #EFEFEF;
   box-sizing: border-box;
 }
 
@@ -37,6 +38,77 @@ body {
 .card {
   margin-bottom: 25px;
   overflow: hidden;
+}
+
+.card-area {
+  height: 200px;
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+.card .title-area {
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 20px;
+  padding: 20px 15px 0px 15px;
+  width: 100%;
+  height: 55px;
+  overflow: hidden;
+}
+
+.card .profile-area {
+  width: 100%;
+  padding: 10px 15px 5px 15px;
+  position: relative;
+}
+
+.card .profile-area .profile-thum {
+  /* width: 10%; */
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.rounded-circle {
+  width: 35px;
+  height: 35px;
+}
+
+.card .profile-area .profile-username {
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  width: 80%;
+  color: #222;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.card .description-area {
+  font-size: 13px;
+  line-height: 17px;
+  padding: 0px 15px 0px 15px;
+  width: 100%;
+  height: 35px;
+  color: #222;
+  overflow: hidden;
+}
+
+.card .info-area {
+  width: 100%;
+  margin-top: 5px;
+  padding: 5px 15px 15px 15px;
+  color: #999;
+  font-size: 13px;
+}
+
+.card .info-area .num {
+  margin: 0px 5px;
+}
+
+.fa-bookmark::before {
+  content: #f02e;
 }
 
 .pagination {
