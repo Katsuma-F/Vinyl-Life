@@ -64,7 +64,7 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
   <title>Vinyl-Life</title>
 </head>
 
-<body style="background-color: #EFEFEF;">
+<body>
   <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD;">
     <div class="container">
       <a class="navber-brand text-dark" href="/">

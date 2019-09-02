@@ -12,7 +12,7 @@
   <title>Vinyl-Life</title>
 </head>
 
-<body style="background-color: #EFEFEF;">
+<body>
   <!-- Header -->
   <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD;">
     <div class="container">

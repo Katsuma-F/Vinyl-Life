@@ -146,8 +146,9 @@ footer {
 
 .footer-lower a {
   margin-top: 30px;
-  margin-right: 15px;
-  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+  margin-left: 20px;
   color: #aaa;
   font-size: 15px;
 }
