@@ -128,7 +128,7 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         <?php if (!empty($error)): ?>
           <p class="error">*恐れ入りますが、画像を改めて指定してください</p>
         <?php endif; ?>
-        <a href="../index.php">ログインはこちら</a>
+        <a href="../login.php">ログインはこちら</a>
       </form>
     </div>
   </div>
