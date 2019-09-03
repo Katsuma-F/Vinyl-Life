@@ -38,7 +38,7 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <center>
-        <h1 class="main-message mb-4">今すぐアナログレコードライフを始めよう！</h1>
+        <h1 class="main-message mb-4">今すぐアナログレコードのある生活を始めよう！</h1>
         <h6 class="sub-message mb-5">アナログレコードを聴くのに必要なセットをシェアするサービスです。</h6>
         <form>
           <a href="join/index.php" class="btn btn-info btn-lg" value="/">
