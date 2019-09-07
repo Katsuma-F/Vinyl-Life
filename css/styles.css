@@ -12,17 +12,27 @@ body {
   border-bottom: 2px solid #DDD;
 }
 
-.btn-secondary {
+.navbar-brand {
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.form-inline .btn {
   margin-right: 17px;
 }
 
 .form-inline {
-  margin: 7px 0px;
+  margin: 7px 0;
 }
 
 .jumbotron {
   color: #fff;
-  margin-top: -25px;
+  margin-top: -37px;
   background-size: cover;
   position: relative;
   z-index: 0;
@@ -50,7 +60,7 @@ body {
   font-size: 17px;
   font-weight: bold;
   line-height: 20px;
-  padding: 20px 15px 0px 15px;
+  padding: 20px 15px 0 15px;
   width: 100%;
   height: 55px;
   overflow: hidden;
@@ -88,7 +98,7 @@ body {
 .card .description-area {
   font-size: 13px;
   line-height: 17px;
-  padding: 0px 15px 0px 15px;
+  padding: 0 15px 0 15px;
   width: 100%;
   height: 35px;
   color: #222;
@@ -104,7 +114,7 @@ body {
 }
 
 .card .info-area .num {
-  margin: 0px 5px;
+  margin: 0 5px;
 }
 
 .fa-bookmark::before {
@@ -138,7 +148,7 @@ footer {
   justify-content: center;
   width: 100%;
   height: 180px;
-  padding: 30px 0px 15px 0px;
+  padding: 30px 0 15px 0px;
   background-color: #393e46;
   color: #FFF;
   text-align: center;

@@ -67,7 +67,7 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
 <body>
   <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD;">
     <div class="container">
-      <a class="navber-brand text-dark" href="/">
+      <a class="navbar-brand text-dark" href="/">
         Vinyl-Life_img
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">

@@ -18,16 +18,29 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD;">
     <div class="container">
-      <a class="navber-brand text-dark" href="index.php">Vinyl-Life_img</a>
+      <a class="navbar-brand text-dark" href="index.php">Vinyl-Life_img</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainMenu">
-        <ul class="navbar-nav"></ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-menu" href="">マイページ</a>
+          </li>
+        </ul>
         <ul class="navbar-nav ml-auto text-dark">
           <form class="form-inline ml-auto">
             <a href="login.php" class="btn btn-secondary">ログイン</a>
             <a href="join/index.php" class="btn btn-danger">新規登録</a>
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="" class="rounded" style="width: 30px; height: 30px; margin-right: 10px"><span>名前</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                <a class="dropdown-item" href="">マイページ</a>
+                <a class="dropdown-item" href="">ログアウト</a>
+              </div>
+            </div>
           </form>
         </ul>
       </div>
