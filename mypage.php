@@ -62,13 +62,13 @@
       <h6 class="user-description">自己紹介文。自己紹介文。自己紹介文。自己紹介文。</h6>
     </div>
     <div class="alert alert-danger alert-dismissble fade show" role="alert">
-      リストがまだありません。作成ボタンからセットを作成してみましょう！
+      リストがまだありません。作成ボタンからパーツセットを作成してみましょう！
       <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
         <span aria-hidden="true">×</span>
       </button>
     </div>
     <center>
-      <a href="#" class="btn btn-danger col-12 mb-4 mx-auto" data-toggle="modal" data-target="#myModal">セットを作成する</a>
+      <a href="#" class="btn btn-danger col-12 mb-4 mx-auto" data-toggle="modal" data-target="#myModal">パーツセットを作成する</a>
     </center>
 
     <!-- リスト -->
@@ -115,7 +115,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">セットの編集</h5>
+                <h5 class="modal-title" id="exampleModalLabel">パーツセットの編集</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
                   <span aria-hidden="true">×</span>
                 </button>
@@ -124,7 +124,7 @@
                 <div class="modal-body">
                   <input type="hidden" name="" value="">
                   <p>
-                    セットの写真
+                    セットの写真：
                     <input type="file" name="image" value="test" size="50" id="id_file" required>
                   </p>
                   <p>
@@ -155,7 +155,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">セットの削除</h5>
+                <h5 class="modal-title" id="exampleModalLabel">パーツセットの削除</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
                   <span aria-hidden="true">×</span>
                 </button>
@@ -163,7 +163,7 @@
               <form method="post">
                 <div class="modal-body">
                   <input type="hidden" name="" value="">
-                  <p>(セット名)を削除してもよろしいでしょうか？</p>
+                  <p>("セット名")を削除してもよろしいでしょうか？</p>
                   <input type="hidden" name="title" class="form-control" value="" placeholder="セットのタイトル" maxlength="50" required id="id_title">
                   <input type="hidden" name="folder_pk" value="58">
                 </div>
@@ -205,7 +205,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">セットを作成する</h5>
+          <h5 class="modal-title" id="exampleModalLabel">パーツセットを作成する</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
             <span aria-hidden="true">×</span>
           </button>
@@ -214,7 +214,7 @@
           <div class="modal-body">
             <input type="hidden" name="" value="">
             <p>
-              <label for="id_file">セットの写真:</label>
+              <label for="id_file">セットの写真；</label>
               <input type="file" name="image" value="test" size="50" id="id_file">
             </p>
             <p>
