@@ -4,3 +4,4 @@ try {
 } catch(PDOException $e) {
     print('DB接続エラー:' . $e->getMessage());
 }
+?>
