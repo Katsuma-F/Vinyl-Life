@@ -15,10 +15,10 @@ if (!empty($_POST)) {
       $_POST['email'],
       sha1($_POST['password'])
     ));
-    $member = $login->fetch();
+    $user = $login->fetch();
 
-    if($member) {
-      $_SESSION['id'] = $member['id'];
+    if($user) {
+      $_SESSION['id'] = $user['id'];
       $_SESSION['time'] = time();
 
       if ($_POST['save'] === 'on') {
