@@ -13,7 +13,7 @@ if (!empty($_POST)) {
     $_SESSION['join']['name'],
     $_SESSION['join']['email'],
     sha1($_SESSION['join']['password']),
-    $_SESSION['join']['image']
+    $_SESSION['join']['picture']
   ));
   unset($_SESSION['join']);
 
@@ -70,8 +70,8 @@ if (!empty($_POST)) {
             <dd>【表示されません】</dd>
             <dt>プロフィール写真</dt>
             <dd>
-              <?php if ($_SESSION['join']['image'] != ''): ?>
-                <img src="../user_picture/<?php print(htmlspecialchars($_SESSION['join']['image'], ENT_QUOTES)); ?>">
+              <?php if ($_SESSION['join']['picture'] != ''): ?>
+                <img src="../user_picture/<?php print(htmlspecialchars($_SESSION['join']['picture'], ENT_QUOTES)); ?>">
               <?php endif; ?>
             </dd>
           </dl>
