@@ -3,6 +3,7 @@ session_start();
 require('../dbconnect.php');
 
 if (!empty($_POST)) {
+  // 会員登録内容のエラーチェック
   if ($_POST['name'] === '') {
 		$error['name'] = 'blank';
 	}
@@ -16,11 +17,11 @@ if (!empty($_POST)) {
 		$error['password'] = 'blank';
 	}
 
-  $fileName = $_FILES['image']['name'];
+  $fileName = $_FILES['picture']['name'];
   if (!empty($fileName)) {
     $ext = substr($fileName, -3);
     if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
-      $error['image'] = 'type';
+      $error['picture'] = 'type';
     }
   }
 
@@ -34,11 +35,12 @@ if (!empty($_POST)) {
     }
   }
 
+  // プロフィール写真の情報をフォルダに保存
   if (empty($error)) {
-    $image = date('YmdHis') . $_FILES['image']['name'];
-    move_uploaded_file($_FILES['image']['tmp_name'], '../user_picture/' . $image);
+    $image = date('YmdHis') . $_FILES['picture']['name'];
+    move_uploaded_file($_FILES['picture']['tmp_name'], '../user_picture/' . $image);
     $_SESSION['join'] = $_POST;
-    $_SESSION['join']['image'] = $image;
+    $_SESSION['join']['picture'] = $image;
     header('Location: check.php');
     exit();
   }
@@ -119,10 +121,10 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         </div>
         <div class="form-group">
           <label>プロフィール写真</label>
-          <input type="file" name="image" value="test" />
+          <input type="file" name="picture" value="test" />
         </div>
         <input class="btn btn-danger" type="submit" value="入力内容を確認する" />
-        <?php if ($error['image'] === 'type'): ?>
+        <?php if ($error['picture'] === 'type'): ?>
           <p class="error">*写真は「.jpg」「.gif」「.png」の画像を指定してください</p>
         <?php endif; ?>
         <?php if (!empty($error)): ?>
