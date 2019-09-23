@@ -1,3 +1,39 @@
+<?php
+session_start();
+require('dbconnect.php');
+
+if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
+  $_SESSION['time'] = time();
+  // ユーザー情報の取得
+  $users = $db->prepare('SELECT * FROM users WHERE id=?');
+  $users->execute(array($_SESSION['id']));
+  $user = $users->fetch();
+} else {
+  header('Location: login.php');
+  exit();
+}
+
+if (!empty($_POST)) {
+  if ($_POST['image'] !== '' && $_POST['title'] !== '' && $_POST['description'] !== '') {
+    // パーツセットの情報をデータベースに保存
+    $card = $db->prepare('INSERT INTO posts SET card_image=?, title=?, description=?, user_id=?, created_at=NOW()');
+    $card->execute(array(
+      $_POST['image'],
+      $_POST['title'],
+      $_POST['description'],
+      $user['id']
+    ));
+
+    header('Location: mypage.php');
+    exit();
+  }
+}
+
+// ログイン中のユーザーidと投稿ユーザーidの情報を照合し、パーツセットの投稿を取得
+$posts = $db->query('SELECT u.name, u.picture, p.* FROM users u, posts p WHERE u.id=p.user_id ORDER BY p.created_at DESC');
+
+?>
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -38,20 +74,21 @@
                 <a class="dropdown-item" href="">マイページ</a>
                 <a class="dropdown-item" href="">ログアウト</a>
               </div>
+            </div>
           </form>
         </ul>
       </div>
     </div>
   </nav>
 
- <!-- Main -->
+  <!-- Main -->
   <div class="container">
     <div class="user-area">
       <div class="user-thum">
-        <img src="" class="rounded-circle" alt="画像" style="width: 70px; height: 70px;">
+        <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="画像" style="width: 70px; height: 70px;">
       </div>
       <div class="user-username">
-        ユーザーネーム
+        <?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?>
       </div>
       <a href="#" target="_blank" class="user-sns">
         <i class="fab fa-twitter" style="margin-right: 3px"></i>
@@ -61,38 +98,41 @@
       <p class="user-"></p>
       <h6 class="user-description">自己紹介文。自己紹介文。自己紹介文。自己紹介文。</h6>
     </div>
-    <div class="alert alert-danger alert-dismissble fade show" role="alert">
-      リストがまだありません。作成ボタンからパーツセットを作成してみましょう！
-      <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
-        <span aria-hidden="true">×</span>
-      </button>
-    </div>
+      <div class="alert alert-danger alert-dismissble fade show" role="alert">
+        リストがまだありません。作成ボタンからパーツセットを作成してみましょう！
+        <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
     <center>
       <a href="#" class="btn btn-danger col-12 mb-4 mx-auto" data-toggle="modal" data-target="#myModal">パーツセットを作成する</a>
     </center>
 
     <!-- リスト -->
     <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <div class="card">
-          <a href="#">
-            <div class="row no-gutters card-area"></div>
-          </a>
+      <?php foreach ($posts as $post): ?>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+          <div class="card">
+            <a href="#">
+              <div class="row no-gutters card-area">
+                <img class="card-img-top" src="">
+              </div>
+            </a>
             <div class="title-area">
-              <a href="#" class="title">タイトル1</a>
+              <a href="#" class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></a>
             </div>
             <div class="profile-area">
               <div class="profile-thum">
                 <a href="#">
-                  <img src="" class="rounded-circle" alt="画像">
+                  <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="画像">
                 </a>
               </div>
               <div class="profile-username">
-                <a href="#" class="profile-username">ユーザーネーム</a>
+                <a href="#" class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></a>
               </div>
             </div>
             <div class="description-area">
-              <p class="description">セットの説明。セットの説明。セットの説明。</p>
+              <p class="description"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></p>
             </div>
             <div class="info-area">
               <i class="far fa-bookmark"></i>
@@ -108,78 +148,81 @@
                 削除
               </a>
             </div>
-        </div>
-
-        <!-- 編集モーダルの設定 -->
-        <div class="modal fade" id="myEditModal58" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">パーツセットの編集</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <form method="post">
-                <div class="modal-body">
-                  <input type="hidden" name="" value="">
-                  <p>
-                    セットの写真：
-                    <input type="file" name="image" value="test" size="50" id="id_file" required>
-                  </p>
-                  <p>
-                    セット名
-                    <input type="text" name="title" class="form-control" value="" placeholder="セットのタイトル" maxlength="50" id="id_title" required>
-                  </p>
-                  <p>
-                    セットの説明
-                    <textarea name="description" rows="3" cols="40" class="form-control" placeholder="このセットについての説明(280文字以内)" maxlength="280" required id="id_description"></textarea>
-                  </p>
-                  <input type="hidden" name="folder_pk" value="58">
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                  <button type="submit" class="btn btn-danger" name="edit_folder">作成</button>
-                </div>
-                <!-- ./modal-footer -->
-              </form>
-            </div>
-            <!-- ./modal-content -->
           </div>
-          <!-- ./modal-dialog -->
         </div>
-        <!-- ./modal -->
+      <?php endforeach; ?>
 
-        <!-- 削除のモーダル設定 -->
-        <div class="modal fade" id="myDeleteModal58" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">パーツセットの削除</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <form method="post">
-                <div class="modal-body">
-                  <input type="hidden" name="" value="">
-                  <p>("セット名")を削除してもよろしいでしょうか？</p>
-                  <input type="hidden" name="title" class="form-control" value="" placeholder="セットのタイトル" maxlength="50" required id="id_title">
-                  <input type="hidden" name="folder_pk" value="58">
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-danger form-control" name="delete_folder">削除</button>
-                </div>
-                <!-- ./modal-footer -->
-              </form>
+      <!-- 編集モーダルの設定 -->
+      <div class="modal fade" id="myEditModal58" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">パーツセットの編集</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                <span aria-hidden="true">×</span>
+              </button>
             </div>
-            <!-- ./modal-content -->
+            <form action="" method="post">
+              <div class="modal-body">
+                <input type="hidden" name="" value="">
+                <p>
+                  セットの写真：
+                  <input type="file" name="image" value="test" size="50" id="id_file" required>
+                </p>
+                <p>
+                  セット名
+                  <input type="text" name="title" class="form-control" value="" placeholder="セットのタイトル" maxlength="50" id="id_title" required>
+                </p>
+                <p>
+                  セットの説明
+                  <textarea name="description" rows="3" cols="40" class="form-control" placeholder="このセットについての説明(280文字以内)" maxlength="280" required id="id_description"></textarea>
+                </p>
+                <input type="hidden" name="folder_pk" value="58">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                <button type="submit" class="btn btn-danger" name="edit_folder">作成</button>
+              </div>
+              <!-- ./modal-footer -->
+            </form>
           </div>
-          <!-- ./modal-dialog -->
+          <!-- ./modal-content -->
         </div>
-        <!-- ./modal -->
+        <!-- ./modal-dialog -->
       </div>
+      <!-- ./modal -->
+
+      <!-- 削除のモーダル設定 -->
+      <div class="modal fade" id="myDeleteModal58" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">パーツセットの削除</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form action="" method="post">
+              <div class="modal-body">
+                <input type="hidden" name="" value="">
+                <p>("セット名")を削除してもよろしいでしょうか？</p>
+                <input type="hidden" name="title" class="form-control" value="" placeholder="セットのタイトル" maxlength="50" required id="id_title">
+                <input type="hidden" name="folder_pk" value="58">
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-danger form-control" name="delete_folder">削除</button>
+              </div>
+              <!-- ./modal-footer -->
+            </form>
+          </div>
+          <!-- ./modal-content -->
+        </div>
+        <!-- ./modal-dialog -->
+      </div>
+      <!-- ./modal -->
+
     </div>
+    <!-- ./row -->
 
     <ul class="pagination">
       <li class="page-item">
@@ -197,8 +240,9 @@
         </a>
       </li>
     </ul>
+
   </div>
-  </div>
+  <!-- ./container -->
 
   <!-- セット作成のモーダル設定 -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
@@ -210,7 +254,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <form method="post">
+        <form action="" method="post">
           <div class="modal-body">
             <input type="hidden" name="" value="">
             <p>
@@ -223,7 +267,7 @@
             </p>
             <p>
               <label for="id_description">説明文:</label>
-              <textarea class="form-control" name="description" placeholder="セットの説明" autofocus="autofocus" maxlength="50" id="id_description" required ></textarea>
+              <textarea class="form-control" name="description" placeholder="このセットについての説明(280文字以内)" autofocus="autofocus" maxlength="280" id="id_description" required ></textarea>
             </p>
           </div>
           <div class="modal-footer">
