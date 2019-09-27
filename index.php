@@ -20,7 +20,7 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand text-light" href="index.php">
-        <img src="index.php" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
         Vinyl-Life
       </a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
