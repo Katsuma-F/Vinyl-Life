@@ -37,8 +37,8 @@ if (!empty($_POST)) {
 
 ?>
 
-<!doctype html>
-<html lang="ja">
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -48,24 +48,44 @@ if (!empty($_POST)) {
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <link rel="stylesheet" href="./css/styles.css">
+
   <title>Vinyl-Life</title>
 </head>
 
 <body>
   <!-- Header -->
-  <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #FDFDFD;">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand text-dark" href="index.php">Vinyl-Life_img</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand text-light" href="index.php">
+        <img src="index.php" width="30" height="30" class="d-inline-block align-top" alt="">
+        Vinyl-Life
+      </a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainMenu">
-        <ul class="navbar-nav"></ul>
-        <ul class="navbar-nav ml-auto text-dark">
-          <form class="form-inline ml-auto">
-            <a href="" class="btn btn-secondary">ログイン</a>
-            <a href="" class="btn btn-danger">新規登録</a>
-          </form>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="mypage.php">マイページ</a> -->
+            </li>
+          </li>
+        </ul>
+        <form class="form-inline justify-content-end">
+          <!-- <a href="login.php" class="btn btn-outline-secondary mr-3">ログイン</a>
+          <a href="join/index.php" class="btn btn-outline-danger my-2">新規登録</a> -->
+        </form>
+        <ul class="navbar-nav justify-content-end my-2">
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="" class="rounded" style="width: 30px; height: 30px; margin-right: 10px">
+              <span>名前</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="userMenu">
+              <a class="dropdown-item" href="#">マイページ</a>
+              <a class="dropdown-item" href="#">ログアウト</a>
+            </div>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -99,17 +119,17 @@ if (!empty($_POST)) {
   </div>
 
   <!-- Footer -->
-  <footer>
+  <div class="footer">
     <div class="footer-upward">
       <address>© Vinyl-Life</address>
     </div>
     <div class="footer-lower">
-      <a href="">ホーム</a>
+      <a href="/">ホーム</a>
       <a href="">利用規約</a>
       <a href="">プライバシーポリシー</a>
       <a href="" target="_blank">お問い合わせ</a>
     </div>
-  </footer>
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
