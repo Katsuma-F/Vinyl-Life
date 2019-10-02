@@ -77,8 +77,8 @@ $posts = $db->query('SELECT u.name, u.picture, p.* FROM users u, posts p WHERE u
         <ul class="navbar-nav justify-content-end my-2">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="" class="rounded" style="width: 30px; height: 30px; margin-right: 10px">
-              <span>名前</span>
+              <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded" style="width: 30px; height: 30px; margin-right: 10px">
+              <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
             </a>
             <div class="dropdown-menu" aria-labelledby="userMenu">
               <a class="dropdown-item" href="#">マイページ</a>
