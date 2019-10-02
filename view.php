@@ -44,7 +44,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="userMenu">
               <a class="dropdown-item" href="#">マイページ</a>
-              <a class="dropdown-item" href="#">ログアウト</a>
+              <a class="dropdown-item" href="logout.php">ログアウト</a>
             </div>
           </li>
         </ul>
