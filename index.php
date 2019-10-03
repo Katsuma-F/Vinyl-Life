@@ -109,14 +109,6 @@ require('posts.php');
               <span class="num">0</span>
               <i class="fas fa-heart"></i>
               <span class="num">0</span>
-              <a href="#" class="text-primary" data-toggle="modal" data-target="#myEditModal58" style="margin-right: 7px;">
-                <i class="fas fa-pen" style="margin-right: 7px;"></i>
-                編集
-              </a>
-              <a href="#" class="text-primary" data-toggle="modal" data-target="#myDeleteModal58" >
-                <i class="fas fa-trash-alt" style="margin-right: 4px;"></i>
-                削除
-              </a>
             </div>
           </div>
         </div>
