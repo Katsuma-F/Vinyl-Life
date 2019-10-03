@@ -1,3 +1,9 @@
+<?php
+require('users.php');
+require('posts.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
 <head>
@@ -74,180 +80,47 @@
   <div class="container">
     <!-- Card-Items -->
     <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <div class="card">
-          <a href="#">
-            <div class="row no-gutters card-area"></div>
-          </a>
+      <?php foreach ($posts as $post): ?>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+          <div class="card">
+            <a href="#">
+              <div class="row no-gutters card-area">
+                <img class="card-img-top" src="">
+              </div>
+            </a>
             <div class="title-area">
-              <a href="#" class="title">タイトル1</a>
+              <a href="#" class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></a>
             </div>
             <div class="profile-area">
               <div class="profile-thum">
                 <a href="#">
-                  <img src="" class="rounded-circle" alt="画像">
+                  <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="画像">
                 </a>
               </div>
               <div class="profile-username">
-                <a href="#" class="profile-username">ユーザーネーム</a>
+                <a href="#" class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></a>
               </div>
             </div>
             <div class="description-area">
-              <p class="description">セットの説明。セットの説明。セットの説明。</p>
+              <p class="description"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></p>
             </div>
             <div class="info-area">
               <i class="far fa-bookmark"></i>
               <span class="num">0</span>
               <i class="fas fa-heart"></i>
               <span class="num">0</span>
+              <a href="#" class="text-primary" data-toggle="modal" data-target="#myEditModal58" style="margin-right: 7px;">
+                <i class="fas fa-pen" style="margin-right: 7px;"></i>
+                編集
+              </a>
+              <a href="#" class="text-primary" data-toggle="modal" data-target="#myDeleteModal58" >
+                <i class="fas fa-trash-alt" style="margin-right: 4px;"></i>
+                削除
+              </a>
             </div>
+          </div>
         </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <div class="card">
-          <a href="#">
-            <div class="row no-gutters card-area"></div>
-          </a>
-            <div class="title-area">
-              <a href="#" class="title">タイトル2</a>
-            </div>
-            <div class="profile-area">
-              <div class="profile-thum">
-                <a href="#">
-                  <img src="" class="rounded-circle" alt="画像">
-                </a>
-              </div>
-              <div class="profile-username">
-                <a href="#" class="profile-username">ユーザーネーム</a>
-              </div>
-            </div>
-            <div class="description-area">
-              <p class="description">セットの説明。セットの説明。セットの説明。</p>
-            </div>
-            <div class="info-area">
-              <i class="far fa-bookmark"></i>
-              <span class="num">0</span>
-              <i class="fas fa-heart"></i>
-              <span class="num">0</span>
-            </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <div class="card">
-          <a href="#">
-            <div class="row no-gutters card-area"></div>
-          </a>
-            <div class="title-area">
-              <a href="#" class="title">タイトル3</a>
-            </div>
-            <div class="profile-area">
-              <div class="profile-thum">
-                <a href="#">
-                  <img src="" class="rounded-circle" alt="画像">
-                </a>
-              </div>
-              <div class="profile-username">
-                <a href="#" class="profile-username">ユーザーネーム</a>
-              </div>
-            </div>
-            <div class="description-area">
-              <p class="description">セットの説明。セットの説明。セットの説明。</p>
-            </div>
-            <div class="info-area">
-              <i class="far fa-bookmark"></i>
-              <span class="num">0</span>
-              <i class="fas fa-heart"></i>
-              <span class="num">0</span>
-            </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <div class="card">
-          <a href="#">
-            <div class="row no-gutters card-area"></div>
-          </a>
-            <div class="title-area">
-              <a href="#" class="title">タイトル4</a>
-            </div>
-            <div class="profile-area">
-              <div class="profile-thum">
-                <a href="#">
-                  <img src="" class="rounded-circle" alt="画像">
-                </a>
-              </div>
-              <div class="profile-username">
-                <a href="#" class="profile-username">ユーザーネーム</a>
-              </div>
-            </div>
-            <div class="description-area">
-              <p class="description">セットの説明。セットの説明。セットの説明。</p>
-            </div>
-            <div class="info-area">
-              <i class="far fa-bookmark"></i>
-              <span class="num">0</span>
-              <i class="fas fa-heart"></i>
-              <span class="num">0</span>
-            </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <div class="card">
-          <a href="#">
-            <div class="row no-gutters card-area"></div>
-          </a>
-            <div class="title-area">
-              <a href="#" class="title">タイトル5</a>
-            </div>
-            <div class="profile-area">
-              <div class="profile-thum">
-                <a href="#">
-                  <img src="" class="rounded-circle" alt="画像">
-                </a>
-              </div>
-              <div class="profile-username">
-                <a href="#" class="profile-username">ユーザーネーム</a>
-              </div>
-            </div>
-            <div class="description-area">
-              <p class="description">セットの説明。セットの説明。セットの説明。</p>
-            </div>
-            <div class="info-area">
-              <i class="far fa-bookmark"></i>
-              <span class="num">0</span>
-              <i class="fas fa-heart"></i>
-              <span class="num">0</span>
-            </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <div class="card">
-          <a href="#">
-            <div class="row no-gutters card-area"></div>
-          </a>
-            <div class="title-area">
-              <a href="#" class="title">タイトル6</a>
-            </div>
-            <div class="profile-area">
-              <div class="profile-thum">
-                <a href="#">
-                  <img src="" class="rounded-circle" alt="画像">
-                </a>
-              </div>
-              <div class="profile-username">
-                <a href="#" class="profile-username">ユーザーネーム</a>
-              </div>
-            </div>
-            <div class="description-area">
-              <p class="description">セットの説明。セットの説明。セットの説明。</p>
-            </div>
-            <div class="info-area">
-              <i class="far fa-bookmark"></i>
-              <span class="num">0</span>
-              <i class="fas fa-heart"></i>
-              <span class="num">0</span>
-            </div>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
     <!-- ./row -->
 
