@@ -1,6 +1,7 @@
 <?php
-require('users.php');
-require('posts.php');
+ini_set('display_errors', 1);
+include('users.php');
+include('posts.php');
 
 ?>
 
