@@ -1,3 +1,10 @@
+<?php
+ini_set('display_errors', 1);
+include('always-get-logged-in-user.php');
+include('posts.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
 <head>

@@ -15,7 +15,7 @@ if (!empty($_POST)) {
   }
 }
 
-// ログイン中のユーザーidと投稿ユーザーidの情報を照合し、パーツセットの投稿を取得
+// ユーザーidと投稿ユーザーidの情報を照合し、パーツセットの投稿を取得
 $posts = $db->query('SELECT u.name, u.picture, p.* FROM users u, posts p WHERE u.id=p.user_id ORDER BY p.created_at DESC');
 
 ?>

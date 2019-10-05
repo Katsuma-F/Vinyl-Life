@@ -1,5 +1,5 @@
 <?php
-require('users.php');
+require('get-logged-in-user.php');
 require('posts.php');
 
 ?>

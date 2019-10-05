@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-include('users.php');
+include('always-get-logged-in-user.php');
 include('posts.php');
 
 ?>
