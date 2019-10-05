@@ -41,10 +41,6 @@ include('posts.php');
             </li>
           </li>
         </ul>
-        <form class="form-inline justify-content-end">
-          <!-- <a href="login.php" class="btn btn-outline-secondary mr-3">ログイン</a>
-          <a href="join/index.php" class="btn btn-outline-danger my-2">新規登録</a> -->
-        </form>
         <ul class="navbar-nav justify-content-end my-2">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,7 +48,7 @@ include('posts.php');
               <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
             </a>
             <div class="dropdown-menu" aria-labelledby="userMenu">
-              <a class="dropdown-item" href="#">マイページ</a>
+              <a class="dropdown-item" href="mypage.php">マイページ</a>
               <a class="dropdown-item" href="logout.php">ログアウト</a>
             </div>
           </li>
@@ -78,12 +74,14 @@ include('posts.php');
       <p class="user-"></p>
       <h6 class="user-description">自己紹介文。自己紹介文。自己紹介文。自己紹介文。</h6>
     </div>
-      <div class="alert alert-danger alert-dismissble fade show" role="alert">
-        リストがまだありません。作成ボタンからパーツセットを作成してみましょう！
-        <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
+      <?php if (!empty($_POST)): ?>
+        <div class="alert alert-danger alert-dismissble fade show" role="alert">
+          リストがまだありません。作成ボタンからパーツセットを作成してみましょう！
+          <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+      <?php endif; ?>
     <center>
       <a href="#" class="btn btn-danger col-12 mb-4 mx-auto" data-toggle="modal" data-target="#myModal">パーツセットを作成する</a>
     </center>
