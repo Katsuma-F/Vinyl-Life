@@ -86,7 +86,7 @@ include('posts.php');
       <a href="#" class="btn btn-danger col-12 mb-4 mx-auto" data-toggle="modal" data-target="#myModal">パーツセットを作成する</a>
     </center>
 
-    <!-- リスト -->
+    <!-- My-Card-Items -->
     <div class="row">
       <?php foreach ($posts as $post): ?>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4">
