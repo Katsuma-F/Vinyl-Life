@@ -122,6 +122,7 @@ require('posts.php');
           </div>
         </div>
       <?php endforeach; ?>
+      
     </div>
     <!-- ./row -->
 
@@ -141,6 +142,7 @@ require('posts.php');
         </a>
       </li>
     </ul>
+
   </div>
   <!-- ./container -->
 
