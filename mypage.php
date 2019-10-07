@@ -210,7 +210,7 @@ include('posts.php');
         </a>
       </li>
       <?php for ($x = 1; $x <= $pagination; $x++): ?>
-        <li class="page-item"><a class="page-link" href="index.php?page=<?php echo $x; ?>"><?php echo $x; ?></a></li>
+        <li class="page-item"><a class="page-link" href="mypage.php?page=<?php echo $x; ?>"><?php echo $x; ?></a></li>
       <?php endfor; ?>
       <li class="page-item">
         <a class="page-link" href="#" aria-label="Next">
