@@ -1,7 +1,8 @@
 <?php
-require('get-logged-in-user.php');
-require('posts.php');
-include('paging.php');
+ini_set('display_errors', 1);
+include('getlogged-inuser.php');
+include('createset.php');
+include('posts.php');
 
 ?>
 

@@ -1,8 +1,8 @@
 <?php
 ini_set('display_errors', 1);
-include('always-get-logged-in-user.php');
+include('always-getlogged-inuser.php');
+include('createset.php');
 include('posts.php');
-include('paging.php');
 
 ?>
 
