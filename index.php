@@ -1,6 +1,7 @@
 <?php
 require('get-logged-in-user.php');
 require('posts.php');
+include('paging.php');
 
 ?>
 
@@ -131,10 +132,9 @@ require('posts.php');
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">4</a></li>
+      <?php for ($x = 1; $x <= $pagination; $x++): ?>
+        <li class="page-item"><a class="page-link" href="index.php?page=<?php echo $x; ?>"><?php echo $x; ?></a></li>
+      <?php endfor; ?>
       <li class="page-item">
         <a class="page-link" href="#" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>

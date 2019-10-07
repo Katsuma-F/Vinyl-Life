@@ -1,21 +1,32 @@
 <?php
-if (!empty($_POST)) {
-  if ($_POST['image'] !== '' && $_POST['title'] !== '' && $_POST['description'] !== '') {
-    // パーツセットの情報をデータベースに保存
-    $card = $db->prepare('INSERT INTO posts SET card_image=?, title=?, description=?, user_id=?, created_at=NOW()');
-    $card->execute(array(
-      $_POST['image'],
-      $_POST['title'],
-      $_POST['description'],
-      $user['id']
-    ));
-
-    header('Location: mypage.php');
-    exit();
-  }
+// GETで現在のページ数を取得する（未入力の場合は１を挿入）
+if (isset($_GET['page'])) {
+  $page = (int)$_GET['page'];
+} else {
+  $page = 1;
 }
 
-// ユーザーidと投稿ユーザーidの情報を照合し、全パーツセットの投稿を取得
-$posts = $db->query('SELECT u.name, u.picture, p.* FROM users u, posts p WHERE u.id=p.user_id ORDER BY p.created_at DESC');
+// スタートのポジションを計算する
+if ($page > 1) {
+  // 例：２ページ目の場合は、『(2 × ６) - ６ = ６』
+  $start = ($page * 6) - 6;
+} else {
+  $start = 0;
+}
+
+// ユーザーidと投稿ユーザーidを照合し、全パーツセットを６件ずつ取得
+$posts = $db->prepare("SELECT u.name, u.picture, p.* FROM users u, posts p WHERE u.id=p.user_id ORDER BY p.created_at DESC LIMIT {$start}, 6");
+
+// postsテーブルからデータを6件取得
+$posts->execute();
+$posts = $posts->fetchAll(PDO::FETCH_ASSOC);
+
+// postsテーブルのデータ件数を取得する
+$page_num = $db->prepare('SELECT COUNT(*) card_id FROM posts');
+$page_num->execute();
+$page_num = $page_num->fetchColumn();
+
+// ページネーションの数を取得する
+$pagination = ceil($page_num / 6);
 
 ?>
