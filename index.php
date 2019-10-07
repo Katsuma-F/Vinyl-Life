@@ -1,8 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-include('getlogged-inuser.php');
-include('createset.php');
-include('posts.php');
+require('getlogged-inuser.php');
+require('createset.php');
+require('posts.php');
 
 ?>
 
