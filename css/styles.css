@@ -117,6 +117,15 @@ body {
   margin-bottom: 30px
 }
 
+.page-item.active .page-link {
+  color: #fff !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.page-link {
+  color: #dc3545 !important;
+}
 
 /* footer */
 .footer {

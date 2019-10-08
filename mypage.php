@@ -203,20 +203,27 @@ include('posts.php');
     </div>
     <!-- ./row -->
 
+    <!-- Pagination -->
     <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
+      <?php if ($page > 1): ?>
+        <li class="page-item">
+          <a class="page-link" href="mypage.php?page=<?php print($page - 1); ?>" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      <?php endif; ?>
       <?php for ($x = 1; $x <= $pagination; $x++): ?>
-        <li class="page-item"><a class="page-link" href="mypage.php?page=<?php echo $x; ?>"><?php echo $x; ?></a></li>
+        <li class="page-item <?php if ($page === $x) { echo 'active'; } ?>">
+          <a class="page-link" href="mypage.php?page=<?php echo $x; ?>"><?php echo $x; ?></a>
+        </li>
       <?php endfor; ?>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
+      <?php if ($page < $pagination): ?>
+        <li class="page-item">
+          <a class="page-link" href="mypage.php?page=<?php print($page + 1); ?>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      <?php endif; ?>
     </ul>
 
   </div>
