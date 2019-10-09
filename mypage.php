@@ -71,8 +71,6 @@ include('posts.php');
         <i class="fab fa-twitter" style="margin-right: 3px"></i>
         @sns_acount
       </a>
-      <p class="user-status">いいね獲得数: 0</p>
-      <p class="user-"></p>
       <h6 class="user-description">自己紹介文。自己紹介文。自己紹介文。自己紹介文。</h6>
     </div>
       <?php if (!empty($_POST)): ?>
@@ -115,8 +113,6 @@ include('posts.php');
             </div>
             <div class="info-area">
               <i class="far fa-bookmark"></i>
-              <span class="num">0</span>
-              <i class="fas fa-heart"></i>
               <span class="num">0</span>
               <a href="#" class="text-primary" data-toggle="modal" data-target="#myEditModal58" style="margin-right: 7px;">
                 <i class="fas fa-pen" style="margin-right: 7px;"></i>

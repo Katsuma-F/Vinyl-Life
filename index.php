@@ -116,8 +116,6 @@ require('posts.php');
             <div class="info-area">
               <i class="far fa-bookmark"></i>
               <span class="num">0</span>
-              <i class="fas fa-heart"></i>
-              <span class="num">0</span>
             </div>
           </div>
         </div>
