@@ -143,7 +143,7 @@ include('posts.php');
             </div>
             <form action="" method="post">
               <div class="modal-body">
-                <input type="hidden" name="" value="">
+                <input type="hidden">
                 <p>
                   セットの写真：
                   <input type="file" name="image" value="test" size="50" id="id_file" required>
@@ -154,7 +154,7 @@ include('posts.php');
                 </p>
                 <p>
                   セットの説明
-                  <textarea name="description" rows="3" cols="40" class="form-control" placeholder="このセットについての説明(280文字以内)" maxlength="280" required id="id_description"></textarea>
+                  <textarea name="description" rows="3" cols="40" class="form-control" placeholder="このセットについての説明(280文字以内)" maxlength="280" id="id_description" required></textarea>
                 </p>
                 <input type="hidden" name="folder_pk" value="58">
               </div>
@@ -183,9 +183,9 @@ include('posts.php');
             </div>
             <form action="" method="post">
               <div class="modal-body">
-                <input type="hidden" name="" value="">
+                <input type="hidden">
                 <p>("セット名")を削除してもよろしいでしょうか？</p>
-                <input type="hidden" name="title" class="form-control" value="" placeholder="セットのタイトル" maxlength="50" required id="id_title">
+                <input type="hidden" name="title" class="form-control" value="" placeholder="セットのタイトル" maxlength="50" id="id_title" required>
                 <input type="hidden" name="folder_pk" value="58">
               </div>
               <div class="modal-footer">
@@ -241,18 +241,18 @@ include('posts.php');
         </div>
         <form action="" method="post">
           <div class="modal-body">
-            <input type="hidden" name="" value="">
+            <input type="hidden">
             <p>
               <label for="id_file">セットの写真；</label>
-              <input type="file" name="image" value="test" size="50" id="id_file">
+              <input type="file" name="image" value="test" size="50" id="id_file" required>
             </p>
             <p>
               <label for="id_title">Title:</label>
-              <input type="text" name="title" class="form-control" placeholder="セットのタイトル" autofocus="autofocus" maxlength="50" id="id_title" required >
+              <input type="text" name="title" class="form-control" placeholder="セットのタイトル" autofocus="autofocus" maxlength="50" id="id_title" required>
             </p>
             <p>
               <label for="id_description">説明文:</label>
-              <textarea class="form-control" name="description" placeholder="このセットについての説明(280文字以内)" autofocus="autofocus" maxlength="280" id="id_description" required ></textarea>
+              <textarea class="form-control" name="description" placeholder="このセットについての説明(280文字以内)" autofocus="autofocus" maxlength="280" id="id_description" required></textarea>
             </p>
           </div>
           <div class="modal-footer">
