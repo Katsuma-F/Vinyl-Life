@@ -142,7 +142,7 @@ include('posts.php');
                 <input type="hidden">
                 <p>
                   セットの写真：
-                  <input type="file" name="image" value="test" size="50" id="id_file" required>
+                  <input type="file" name="image" value="test" id="id_file" required>
                 </p>
                 <p>
                   セット名
@@ -152,7 +152,7 @@ include('posts.php');
                   セットの説明
                   <textarea name="description" rows="3" cols="40" class="form-control" placeholder="このセットについての説明(280文字以内)" maxlength="280" id="id_description" required></textarea>
                 </p>
-                <input type="hidden" name="folder_pk" value="58">
+                <input type="hidden" name="folder_pk">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
@@ -181,8 +181,8 @@ include('posts.php');
               <div class="modal-body">
                 <input type="hidden">
                 <p>("セット名")を削除してもよろしいでしょうか？</p>
-                <input type="hidden" name="title" class="form-control" value="" placeholder="セットのタイトル" maxlength="50" id="id_title" required>
-                <input type="hidden" name="folder_pk" value="58">
+                <input type="hidden" name="title" class="form-control" placeholder="セットのタイトル" maxlength="50" id="id_title" required>
+                <input type="hidden" name="folder_pk">
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-danger form-control" name="delete_folder">削除</button>
@@ -240,7 +240,7 @@ include('posts.php');
             <input type="hidden">
             <p>
               <label for="id_file">セットの写真；</label>
-              <input type="file" name="image" value="test" size="50" id="id_file" required>
+              <input type="file" name="image" value="test" id="id_file" required>
             </p>
             <p>
               <label for="id_title">Title:</label>
