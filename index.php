@@ -37,21 +37,21 @@ require('posts.php');
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <li class="nav-item">
-              <?php if (!is_null($_SESSION['id'])): ?>
+              <?php if ($_SESSION['id']): ?>
                 <a class="nav-link" href="mypage.php">マイページ</a>
               <?php endif; ?>
             </li>
           </li>
         </ul>
         <form class="form-inline justify-content-end">
-          <?php if (is_null($_SESSION['id'])): ?>
+          <?php if (!$_SESSION['id']): ?>
             <a href="login.php" class="btn btn-outline-secondary mr-3">ログイン</a>
             <a href="join/index.php" class="btn btn-outline-danger my-2">新規登録</a>
           <?php endif; ?>
         </form>
         <ul class="navbar-nav justify-content-end my-2">
           <li class="nav-item dropdown">
-            <?php if (!is_null($_SESSION['id'])): ?>
+            <?php if ($_SESSION['id']): ?>
               <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded" style="width: 30px; height: 30px; margin-right: 10px">
                 <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
@@ -74,7 +74,7 @@ require('posts.php');
         <h1 class="main-message mb-4">今すぐアナログレコードのある生活を始めよう！</h1>
         <h6 class="sub-message mb-5">アナログレコードを聴くために必要なパーツセットをシェアするサービスです。</h6>
         <form>
-          <?php if (is_null($_SESSION['id'])): ?>
+          <?php if (!$_SESSION['id']): ?>
             <a href="join/index.php" class="btn btn-info btn-lg" value="/">
               <i class="fab fa-mail mr-1"></i>
               メールアドレスで新規登録
