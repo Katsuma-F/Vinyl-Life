@@ -45,34 +45,6 @@ if (!empty($_POST)) {
         <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
         Vinyl-Life
       </a>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainMenu">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <li class="nav-item">
-              <!-- <a class="nav-link" href="mypage.php">マイページ</a> -->
-            </li>
-          </li>
-        </ul>
-        <form class="form-inline justify-content-end">
-          <!-- <a href="login.php" class="btn btn-outline-secondary mr-3">ログイン</a>
-          <a href="join/index.php" class="btn btn-outline-danger my-2">新規登録</a> -->
-        </form>
-        <ul class="navbar-nav justify-content-end my-2">
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="" class="rounded" style="width: 30px; height: 30px; margin-right: 10px">
-              <span>名前</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="userMenu">
-              <a class="dropdown-item" href="#">マイページ</a>
-              <a class="dropdown-item" href="#">ログアウト</a>
-            </div>
-          </li> -->
-        </ul>
-      </div>
     </div>
   </nav>
 
