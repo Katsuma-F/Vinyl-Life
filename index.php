@@ -37,7 +37,7 @@ require('posts.php');
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <li class="nav-item">
-              <?php if (isset($_SESSION['id'])): ?>
+              <?php if (!is_null($_SESSION['id'])): ?>
                 <a class="nav-link" href="mypage.php">マイページ</a>
               <?php endif; ?>
             </li>
@@ -51,7 +51,7 @@ require('posts.php');
         </form>
         <ul class="navbar-nav justify-content-end my-2">
           <li class="nav-item dropdown">
-            <?php if (isset($_SESSION['id'])): ?>
+            <?php if (!is_null($_SESSION['id'])): ?>
               <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded" style="width: 30px; height: 30px; margin-right: 10px">
                 <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
