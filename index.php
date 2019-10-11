@@ -1,6 +1,10 @@
 <?php
+session_start();
+require('dbconnect.php');
 require('getlogged-inuser.php');
+
 require('createset.php');
+
 require('posts.php');
 
 ?>

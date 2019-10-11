@@ -1,7 +1,11 @@
 <?php
 ini_set('display_errors', 1);
+session_start();
+require('dbconnect.php');
 include('always-getlogged-inuser.php');
+
 include('createset.php');
+
 include('posts.php');
 
 ?>

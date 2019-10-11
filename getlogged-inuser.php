@@ -1,7 +1,4 @@
 <?php
-session_start();
-require('dbconnect.php');
-
 if (isset($_SESSION['id'])) {
   $_SESSION['time'] = time();
   // ログイン中のユーザー情報の取得
