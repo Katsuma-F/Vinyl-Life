@@ -37,21 +37,21 @@ require('posts.php');
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <li class="nav-item">
-              <?php if ($_SESSION['id']): ?>
+              <?php if (isset($_SESSION['id'])): ?>
                 <a class="nav-link" href="mypage.php">マイページ</a>
               <?php endif; ?>
             </li>
           </li>
         </ul>
         <form class="form-inline justify-content-end">
-          <?php if (!$_SESSION['id']): ?>
+          <?php if (!isset($_SESSION['id'])): ?>
             <a href="login.php" class="btn btn-outline-secondary mr-3">ログイン</a>
             <a href="join/index.php" class="btn btn-outline-danger my-2">新規登録</a>
           <?php endif; ?>
         </form>
         <ul class="navbar-nav justify-content-end my-2">
           <li class="nav-item dropdown">
-            <?php if ($_SESSION['id']): ?>
+            <?php if (isset($_SESSION['id'])): ?>
               <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded" style="width: 30px; height: 30px; margin-right: 10px">
                 <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
