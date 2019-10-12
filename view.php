@@ -79,7 +79,7 @@ $posts->execute(array($_REQUEST['card_id']));
                 <img class="card-img-top" src="">
               </div>
             </a>
-            <div class="title-area">
+            <div class="title-area" style="height: 60px !important;">
               <p class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></p>
             </div>
             <div class="profile-area">
