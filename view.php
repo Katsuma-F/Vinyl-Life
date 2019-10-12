@@ -1,7 +1,16 @@
 <?php
 ini_set('display_errors', 1);
-include('always-get-logged-in-user.php');
-include('posts.php');
+session_start();
+require('dbconnect.php');
+include('always-getlogged-inuser.php');
+
+if (empty($_REQUEST['card_id'])) {
+  header('Location: index.php');
+  exit();
+}
+
+$posts = $db->prepare('SELECT u.name, u.picture, p.* FROM users u, posts p WHERE u.id=p.user_id AND p.card_id=?');
+$posts->execute(array($_REQUEST['card_id']));
 
 ?>
 
@@ -16,6 +25,9 @@ include('posts.php');
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <link rel="stylesheet" href="./css/styles.css">
+
+  <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="./folder/all.css">
 
   <title>Vinyl-Life</title>
 </head>
@@ -54,6 +66,50 @@ include('posts.php');
       </div>
     </div>
   </nav>
+
+  <!-- Main -->
+  <div class="container">
+    <!-- Card-Items -->
+    <div class="row justify-content-center">
+      <?php if ($post = $posts->fetch()): ?>
+        <div class="col-12 col-sm-12 col-md-10 col-lg-8">
+          <div class="card">
+            <a href="#">
+              <div class="row no-gutters card-area" style="height: 300px !important;">
+                <img class="card-img-top" src="">
+              </div>
+            </a>
+            <div class="title-area">
+              <p class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></p>
+            </div>
+            <div class="profile-area">
+              <div class="profile-thum">
+                <a href="#">
+                  <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="画像">
+                </a>
+              </div>
+              <div class="profile-username">
+                <a href="#" class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></a>
+              </div>
+            </div>
+            <div class="description-area" style="height: 185px !important;">
+              <p class="description"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></p>
+            </div>
+            <div class="info-area">
+              <i class="far fa-bookmark"></i>
+              <span class="num">0</span>
+            </div>
+          </div>
+        </div>
+        <?php else: ?>
+          <p>その投稿は削除されたか、URLが間違えています</p>
+        <?php endif; ?>
+
+    </div>
+    <!-- ./row -->
+
+  </div>
+  <!-- ./container -->
 
   <!-- Footer -->
   <div class="footer">

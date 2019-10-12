@@ -5,6 +5,7 @@ require('getlogged-inuser.php');
 
 require('createset.php');
 
+require('paging.php');
 require('posts.php');
 
 ?>
@@ -102,7 +103,7 @@ require('posts.php');
               </div>
             </a>
             <div class="title-area">
-              <a href="#" class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></a>
+              <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'])); ?>" class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></a>
             </div>
             <div class="profile-area">
               <div class="profile-thum">
