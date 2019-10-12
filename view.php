@@ -92,7 +92,7 @@ $posts->execute(array($_REQUEST['card_id']));
                 <a href="#" class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></a>
               </div>
             </div>
-            <div class="description-area" style="height: 185px !important;">
+            <div class="description-area" style="height: 205px !important;">
               <p class="description"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></p>
             </div>
             <div class="info-area">
