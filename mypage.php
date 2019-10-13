@@ -120,10 +120,6 @@ include('posts.php');
               <div class="info-area">
                 <i class="far fa-bookmark"></i>
                 <span class="num">0</span>
-                <a href="#" class="text-primary" data-toggle="modal" data-target="#myEditModal58" style="margin-right: 7px;">
-                  <i class="fas fa-pen" style="margin-right: 7px;"></i>
-                  編集
-                </a>
                 <a href="#" class="text-primary" data-toggle="modal" data-target="#myDeleteModal58" >
                   <i class="fas fa-trash-alt" style="margin-right: 4px;"></i>
                   削除
@@ -131,46 +127,6 @@ include('posts.php');
               </div>
             </div>
           </div>
-
-        <!-- 編集モーダルの設定 -->
-        <div class="modal fade" id="myEditModal58" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">パーツセットの編集</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <form action="" method="post">
-                <div class="modal-body">
-                  <input type="hidden">
-                  <p>
-                    セットの写真：
-                    <input type="file" name="image" value="" id="id_file" required>
-                  </p>
-                  <p>
-                    セット名
-                    <input type="text" name="title" class="form-control" value="" placeholder="セットのタイトル" maxlength="50" id="id_title" required>
-                  </p>
-                  <p>
-                    セットの説明
-                    <textarea name="description" rows="3" cols="40" class="form-control" value="" placeholder="このセットについての説明(280文字以内)" maxlength="280" id="id_description" required></textarea>
-                  </p>
-                  <input type="hidden" name="folder_pk">
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                  <button type="submit" class="btn btn-danger" name="edit_folder">作成</button>
-                </div>
-                <!-- ./modal-footer -->
-              </form>
-            </div>
-            <!-- ./modal-content -->
-          </div>
-          <!-- ./modal-dialog -->
-        </div>
-        <!-- ./modal -->
 
         <!-- 削除のモーダル設定 -->
         <div class="modal fade" id="myDeleteModal58" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
