@@ -76,7 +76,6 @@ include('posts.php');
         <i class="fab fa-twitter" style="margin-right: 3px"></i>
         @sns_acount
       </a>
-      <h6 class="user-description">自己紹介文。自己紹介文。自己紹介文。自己紹介文。</h6>
     </div>
       <?php if (!empty($_POST)): ?>
         <div class="alert alert-danger alert-dismissble fade show" role="alert">

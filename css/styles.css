@@ -201,15 +201,3 @@ body {
   font-size: 16px;
   overflow: none;
 }
-
-.user-area .user-status {
-  position: absolute;
-  top: 60px;
-  left: 100px;
-  color: #999;
-  font-size: 12px;
-}
-
-.user-area .user-description {
-  margin-top: 20px;
-}
