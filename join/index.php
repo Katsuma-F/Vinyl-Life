@@ -91,6 +91,10 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
           <?php endif; ?>
         </div>
         <div class="form-group">
+          <label>*任意  Twitterアカウント名</label>
+          <input class="form-control" name="sns_name" type="text" value="@<?php print(htmlspecialchars($_POST['sns_name'], ENT_QUOTES)); ?>" />
+        </div>
+        <div class="form-group">
           <label>メールアドレス</label>
           <input class="form-control" name="email" type="email" value="<?php print(htmlspecialchars($_POST['email'], ENT_QUOTES)); ?>" />
           <?php if ($error['email'] === 'blank'): ?>

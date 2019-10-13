@@ -112,10 +112,11 @@ include('posts.php');
                 <div class="profile-username">
                   <a href="#" class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></a>
                 </div>
+                <div class="sns-username">
+                  <p class="sns-username"><?php print(htmlspecialchars($post['sns_name'], ENT_QUOTES)); ?></p>
+                </div>
               </div>
-              <div class="description-area">
-                <p class="description"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></p>
-              </div>
+              <div class="description-area"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></div>
               <div class="info-area">
                 <i class="far fa-bookmark"></i>
                 <span class="num">0</span>

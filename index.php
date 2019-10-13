@@ -114,6 +114,9 @@ require('posts.php');
               <div class="profile-username">
                 <a href="#" class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></a>
               </div>
+              <div class="sns-username">
+                <p class="sns-username"><?php print(htmlspecialchars($post['sns_name'], ENT_QUOTES)); ?></p>
+              </div>
             </div>
             <div class="description-area">
               <p class="description"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></p>

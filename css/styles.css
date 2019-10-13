@@ -90,6 +90,16 @@ body {
   font-size: 15px;
 }
 
+.card .profile-area .sns-username {
+  position: absolute;
+  top: 14px;
+  left: 31px;
+  width: 80%;
+  color: #999;
+  font-size: 12px;
+  overflow: none;
+}
+
 .card .description-area {
   font-size: 13px;
   line-height: 17px;
