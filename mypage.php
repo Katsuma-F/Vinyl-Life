@@ -72,10 +72,10 @@ include('posts.php');
       <div class="user-username">
         <?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?>
       </div>
-      <a href="#" target="_blank" class="user-sns">
+      <p class="user-sns">
         <i class="fab fa-twitter" style="margin-right: 3px"></i>
-        @sns_acount
-      </a>
+        <?php print(htmlspecialchars($user['sns_name'], ENT_QUOTES)); ?>
+      </p>
     </div>
       <?php if (!empty($_POST)): ?>
         <div class="alert alert-danger alert-dismissble fade show" role="alert">
