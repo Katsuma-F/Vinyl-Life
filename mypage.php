@@ -147,7 +147,7 @@ include('posts.php');
                   <input type="hidden">
                   <p>
                     セットの写真：
-                    <input type="file" name="image" value="test" id="id_file" required>
+                    <input type="file" name="image" value="" id="id_file" required>
                   </p>
                   <p>
                     セット名
@@ -155,7 +155,7 @@ include('posts.php');
                   </p>
                   <p>
                     セットの説明
-                    <textarea name="description" rows="3" cols="40" class="form-control" placeholder="このセットについての説明(280文字以内)" maxlength="280" id="id_description" required></textarea>
+                    <textarea name="description" rows="3" cols="40" class="form-control" value="" placeholder="このセットについての説明(280文字以内)" maxlength="280" id="id_description" required></textarea>
                   </p>
                   <input type="hidden" name="folder_pk">
                 </div>
