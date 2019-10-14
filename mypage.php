@@ -97,7 +97,7 @@ include('posts.php');
             <div class="card">
               <a href="#">
                 <div class="row no-gutters card-area">
-                  <img class="card-img-top" src="">
+                  <img src="" class="card-img-top">
                 </div>
               </a>
               <div class="title-area">
@@ -198,7 +198,7 @@ include('posts.php');
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <form action="" method="post">
+        <form action="" method="post" multipart="enctype/multipart">
           <div class="modal-body">
             <input type="hidden">
             <p>

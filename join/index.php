@@ -37,10 +37,10 @@ if (!empty($_POST)) {
 
   // プロフィール写真の情報をフォルダに保存
   if (empty($error)) {
-    $image = date('YmdHis') . $_FILES['picture']['name'];
-    move_uploaded_file($_FILES['picture']['tmp_name'], '../user_picture/' . $image);
+    $picture = date('YmdHis') . $_FILES['picture']['name'];
+    move_uploaded_file($_FILES['picture']['tmp_name'], '../user_picture/' . $picture);
     $_SESSION['join'] = $_POST;
-    $_SESSION['join']['picture'] = $image;
+    $_SESSION['join']['picture'] = $picture;
     header('Location: check.php');
     exit();
   }
