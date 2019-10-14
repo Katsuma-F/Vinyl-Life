@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('dbconnect.php');
-require('getlogged-inuser.php');
+require('./getlog/getlogged-inuser.php');
 
 require('createset.php');
 
@@ -99,7 +99,7 @@ require('posts.php');
           <div class="card">
             <a href="#">
               <div class="row no-gutters card-area">
-                <img class="card-img-top" src="">
+                <img src="" class="card-img-top">
               </div>
             </a>
             <div class="title-area">
