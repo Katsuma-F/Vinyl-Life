@@ -9,7 +9,7 @@ if (empty($_REQUEST['card_id'])) {
   exit();
 }
 
-$posts = $db->prepare('SELECT u.name, u.picture, p.* FROM users u, posts p WHERE u.id=p.user_id AND p.card_id=?');
+$posts = $db->prepare('SELECT u.name, u.sns_name, u.picture, p.* FROM users u, posts p WHERE u.id=p.user_id AND p.card_id=?');
 $posts->execute(array($_REQUEST['card_id']));
 
 ?>
@@ -90,6 +90,9 @@ $posts->execute(array($_REQUEST['card_id']));
               </div>
               <div class="profile-username">
                 <a href="#" class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></a>
+              </div>
+              <div class="sns-username">
+                <p class="sns-username"><?php print(htmlspecialchars($post['sns_name'], ENT_QUOTES)); ?></p>
               </div>
             </div>
             <div class="description-area" style="height: 205px !important;">
