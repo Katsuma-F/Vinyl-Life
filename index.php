@@ -79,7 +79,7 @@ require('posts.php');
         <h1 class="main-message mb-4">今すぐアナログレコードのある生活を始めよう！</h1>
         <h6 class="sub-message mb-5">アナログレコードを聴くために必要なパーツセットをシェアするサービスです。</h6>
         <form>
-          <?php if (!$_SESSION['id']): ?>
+          <?php if (!isset($_SESSION['id'])): ?>
             <a href="join/index.php" class="btn btn-info btn-lg" value="/">
               <i class="fab fa-mail mr-1"></i>
               メールアドレスで新規登録
