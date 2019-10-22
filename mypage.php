@@ -138,7 +138,7 @@ include('posts.php');
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
-              <form action="" method="post">
+              <form action="" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                   <input type="hidden">
                   <p>「セットのタイトル」を削除してもよろしいでしょうか？</p>
