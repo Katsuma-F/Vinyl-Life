@@ -118,8 +118,8 @@ body {
   font-size: 13px;
 }
 
-.card .info-area .num {
-  margin: 0 5px;
+.card .info-area .fa-bookmark {
+  margin: 0 14px 0 5px;
 }
 
 .fa-bookmark::before {
