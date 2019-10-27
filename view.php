@@ -76,7 +76,7 @@ $posts->execute(array($_REQUEST['card_id']));
           <div class="card">
             <a href="#">
               <div class="row no-gutters card-area" style="height: 300px !important;">
-                <img class="card-img-top" src="">
+                <img src="card_image/<?php print(htmlspecialchars($post['card_image'], ENT_QUOTES)); ?>" class="card-img-top">
               </div>
             </a>
             <div class="title-area" style="height: 60px !important;">

@@ -119,7 +119,6 @@ include('posts.php');
               <div class="description-area"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></div>
               <div class="info-area">
                 <i class="far fa-bookmark"></i>
-                <span class="num">0</span>
                 <a href="#" class="text-primary" data-toggle="modal" data-target="#myDeleteModal58" >
                   <i class="fas fa-trash-alt" style="margin-right: 4px;"></i>
                   削除
@@ -142,7 +141,6 @@ include('posts.php');
                 <div class="modal-body">
                   <input type="hidden">
                   <p>「セットのタイトル」を削除してもよろしいでしょうか？</p>
-                  <input type="hidden" name="title" class="form-control" placeholder="セットのタイトル" maxlength="50" id="id_title" required>
                   <input type="hidden" name="folder_pk">
                 </div>
                 <div class="modal-footer">
@@ -202,15 +200,35 @@ include('posts.php');
           <div class="modal-body">
             <input type="hidden">
             <p>
-              <label for="id_file">セットの写真；</label>
+              <label for="id_file">セットの写真：</label>
               <input type="file" name="image" value="test" id="id_file" required>
             </p>
             <p>
-              <label for="id_title">Title:</label>
-              <input type="text" name="title" class="form-control" placeholder="セットのタイトル" autofocus="autofocus" maxlength="50" id="id_title" required>
+              <label for="id_title">※タイトル：</label>
+              <input type="text" name="title" class="form-control" placeholder="このセットのタイトルをご記入ください" autofocus="autofocus" maxlength="50" id="id_title" required>
             </p>
             <p>
-              <label for="id_description">説明文:</label>
+              <label for="id_recordplayer">※レコードプレーヤー（ターンテーブル）：</label>
+              <input type="text" name="record_player" class="form-control" autofocus="autofocus" maxlength="50" id="id_recordplayer" required>
+            </p>
+            <p>
+              <label for="id_speaker">※スピーカー：</label>
+              <input type="text" name="speaker" class="form-control" autofocus="autofocus" maxlength="50" id="id_speaker" required>
+            </p>
+            <p>
+              <label for="id_phonoequalizer">フォノイコライザー：</label>
+              <input type="text" name="phono_equalizer" class="form-control" autofocus="autofocus" maxlength="50" id="id_phonoequalizer">
+            </p>
+            <p>
+              <label for="id_amplifier">アンプ：</label>
+              <input type="text" name="amplifier" class="form-control" autofocus="autofocus" maxlength="50" id="id_amplifier">
+            </p>
+            <p>
+              <label for="id_otherparts">その他：</label>
+              <input type="text" name="other_parts" class="form-control" placeholder="針（カートリッジ）etc." autofocus="autofocus" maxlength="50" id="id_otherparts">
+            </p>
+            <p>
+              <label for="id_description">説明文：</label>
               <textarea class="form-control" name="description" placeholder="このセットについての説明(280文字以内)" autofocus="autofocus" maxlength="280" id="id_description" required></textarea>
             </p>
           </div>
