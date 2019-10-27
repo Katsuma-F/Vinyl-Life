@@ -123,7 +123,6 @@ require('posts.php');
             </div>
             <div class="info-area">
               <i class="far fa-bookmark"></i>
-              <span class="num">0</span>
             </div>
           </div>
         </div>
