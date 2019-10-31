@@ -74,11 +74,9 @@ $posts->execute(array($_REQUEST['card_id']));
       <?php if ($post = $posts->fetch()): ?>
         <div class="col-12 col-sm-12 col-md-10 col-lg-8">
           <div class="card">
-            <a href="#">
-              <div class="row no-gutters card-area" style="height: 300px !important;">
-                <img src="card_image/<?php print(htmlspecialchars($post['card_image'], ENT_QUOTES)); ?>" class="card-img-top">
-              </div>
-            </a>
+            <div class="row no-gutters card-area" style="height: 470px !important;">
+              <img src="card_image/<?php print(htmlspecialchars($post['card_image'], ENT_QUOTES)); ?>" class="card-img-top">
+            </div>
             <div class="title-area" style="height: 60px !important;">
               <p class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></p>
             </div>
@@ -95,12 +93,28 @@ $posts->execute(array($_REQUEST['card_id']));
                 <p class="sns-username"><?php print(htmlspecialchars($post['sns_name'], ENT_QUOTES)); ?></p>
               </div>
             </div>
+            <div class="record-player-area">
+              <p class="record-player">レコードプレーヤー（ターンテーブル）：<?php print(htmlspecialchars($post['record_player'], ENT_QUOTES)); ?></p>
+            </div>
+            <div class="speaker-area">
+              <p class="speaker">スピーカー：<?php print(htmlspecialchars($post['speaker'], ENT_QUOTES)); ?></p>
+            </div>
+            <div class="phono-equalizer-area">
+              <p class="phono-equalizer">フォノイコライザー：<?php print(htmlspecialchars($post['phono_equalizer'], ENT_QUOTES)); ?></p>
+            </div>
+            <div class="amplifier-area">
+              <p class="amplifier">アンプ：<?php print(htmlspecialchars($post['amplifier'], ENT_QUOTES)); ?></p>
+            </div>
+            <div class="other-parts-area">
+              <p class="other-parts">その他：<?php print(htmlspecialchars($post['other_parts'], ENT_QUOTES)); ?></p>
+            </div>
             <div class="description-area" style="height: 205px !important;">
               <p class="description"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></p>
             </div>
             <div class="info-area">
-              <i class="far fa-bookmark"></i>
-              <span class="num">0</span>
+              <div class="addFavorite">
+                <img src="./img/addFavorite.png" alt="addFavorite">
+              </div>
             </div>
           </div>
         </div>

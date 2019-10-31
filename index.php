@@ -97,7 +97,7 @@ require('posts.php');
       <?php foreach ($posts as $post): ?>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4">
           <div class="card">
-            <a href="#">
+            <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'])); ?>">
               <div class="row no-gutters card-area">
                 <img src="card_image/<?php print(htmlspecialchars($post['card_image'], ENT_QUOTES)); ?>" class="card-img-top">
               </div>
@@ -122,7 +122,9 @@ require('posts.php');
               <p class="description"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></p>
             </div>
             <div class="info-area">
-              <i class="far fa-bookmark"></i>
+              <div class="addFavorite">
+                <img src="./img/addFavorite.png" alt="addFavorite">
+              </div>
             </div>
           </div>
         </div>

@@ -95,7 +95,7 @@ include('posts.php');
         <?php if ($_SESSION['id'] == $post['user_id']): ?>
           <div class="col-12 col-sm-6 col-md-4 col-lg-4">
             <div class="card">
-              <a href="#">
+              <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'])); ?>">
                 <div class="row no-gutters card-area">
                   <img src="card_image/<?php print(htmlspecialchars($post['card_image'], ENT_QUOTES)); ?>" class="card-img-top">
                 </div>
@@ -118,8 +118,7 @@ include('posts.php');
               </div>
               <div class="description-area"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></div>
               <div class="info-area">
-                <i class="far fa-bookmark"></i>
-                <a href="#" class="text-primary" data-toggle="modal" data-target="#myDeleteModal58" >
+                <a href="#" class="text-primary" data-toggle="modal" data-target="#myDeleteModal58">
                   <i class="fas fa-trash-alt" style="margin-right: 4px;"></i>
                   削除
                 </a>
@@ -200,7 +199,7 @@ include('posts.php');
           <div class="modal-body">
             <input type="hidden">
             <p>
-              <label for="id_file">セットの写真：</label>
+              <label for="id_file">※セットの写真：</label>
               <input type="file" name="image" value="test" id="id_file" required>
             </p>
             <p>
