@@ -137,9 +137,6 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
     </div>
     <div class="footer-lower">
       <a href="/">ホーム</a>
-      <a href="">利用規約</a>
-      <a href="">プライバシーポリシー</a>
-      <a href="" target="_blank">お問い合わせ</a>
     </div>
   </div>
 
