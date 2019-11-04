@@ -2,17 +2,17 @@
 session_start();
 require('dbconnect.php');
 
-if ($_COOKIE['email'] !== '') {
-  $email = $_COOKIE['email'];
+if ($_COOKIE['user_id'] !== '') {
+  $UserId = $_COOKIE['user_id'];
 }
 
 if (!empty($_POST)) {
-  $email = $_POST['email'];
+  $UserId = $_POST['user_id'];
 
-  if ($_POST['email'] !== '' && $_POST['password'] !== '') {
-    $login = $db->prepare('SELECT * FROM users WHERE email=? AND password=?');
+  if ($_POST['user_id'] !== '' && $_POST['password'] !== '') {
+    $login = $db->prepare('SELECT * FROM users WHERE user_id=? AND password=?');
     $login->execute(array(
-      $_POST['email'],
+      $_POST['user_id'],
       sha1($_POST['password'])
     ));
     $user = $login->fetch();
@@ -22,7 +22,7 @@ if (!empty($_POST)) {
       $_SESSION['time'] = time();
 
       if ($_POST['save'] === 'on') {
-        setcookie('email', $_POST['email'], time()+60*60*24*14);
+        setcookie('user_id', $_POST['user_id'], time()+60*60*24*14);
       }
 
       header('Location: index.php');
@@ -68,9 +68,9 @@ if (!empty($_POST)) {
       <form action="" method="post">
         <h1>ログイン</h1>
         <div class="form-group">
-          <input class="form-control" name="email" type="text" placeholder="メールアドレス" value="<?php print(htmlspecialchars($email, ENT_QUOTES)); ?>" />
+          <input class="form-control" name="user_id" type="text" placeholder="ユーザーid" value="<?php print(htmlspecialchars($UserId, ENT_QUOTES)); ?>" />
           <?php if ($error['login'] === 'blank'): ?>
-            <p class="error">*メールアドレスとパスワードをご記入ください</p>
+            <p class="error">*ユーザーidとパスワードをご記入ください</p>
           <?php endif; ?>
           <?php if ($error['login'] === 'failed'): ?>
             <p class="error">*ログインに失敗しました。正しくご記入ください</p>

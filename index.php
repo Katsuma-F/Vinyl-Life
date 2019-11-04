@@ -81,8 +81,8 @@ require('posts.php');
         <form>
           <?php if (!isset($_SESSION['id'])): ?>
             <a href="join/index.php" class="btn btn-info btn-lg" value="/">
-              <i class="fab fa-mail mr-1"></i>
-              メールアドレスで新規登録
+              <i class="far fa-registered"></i>
+              会員登録する
             </a>
           <?php endif; ?>
         </form>
@@ -122,9 +122,6 @@ require('posts.php');
               <p class="description"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></p>
             </div>
             <div class="info-area">
-              <div class="addFavorite">
-                <img src="./img/addFavorite.png" alt="addFavorite">
-              </div>
             </div>
           </div>
         </div>

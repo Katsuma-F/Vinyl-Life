@@ -112,9 +112,6 @@ $posts->execute(array($_REQUEST['card_id']));
               <p class="description"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></p>
             </div>
             <div class="info-area">
-              <div class="addFavorite">
-                <img src="./img/addFavorite.png" alt="addFavorite">
-              </div>
             </div>
           </div>
         </div>

@@ -8,8 +8,8 @@ if (ini_set('session.use_cookies')) {
 }
 session_destroy();
 
-// ログアウト時、cookieに保存されているメールアドレスを削除
-setcookie('email', '', time() - 3600);
+// ログアウト時、cookieに保存されているユーザーidを削除
+setcookie('user_id', '', time() - 3600);
 
 header('Location: login.php');
 exit();
