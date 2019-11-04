@@ -7,8 +7,8 @@ if (!empty($_POST)) {
   if ($_POST['name'] === '') {
 		$error['name'] = 'blank';
 	}
-	if ($_POST['email'] === '') {
-		$error['email'] = 'blank';
+	if ($_POST['user_id'] === '') {
+		$error['user_id'] = 'blank';
 	}
 	if (strlen($_POST['password']) < 4) {
 		$error['password'] = 'length';
@@ -27,11 +27,11 @@ if (!empty($_POST)) {
 
   // アカウントの重複チェック
   if (empty($error)) {
-    $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE email=?');
-    $user->execute(array($_POST['email']));
+    $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE user_id=?');
+    $user->execute(array($_POST['user_id']));
     $record = $user->fetch();
     if ($record['cnt'] > 0) {
-      $error['email'] = 'duplicate';
+      $error['user_id'] = 'duplicate';
     }
   }
 
@@ -95,13 +95,13 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
           <input class="form-control" name="sns_name" type="text" value="@<?php print(htmlspecialchars($_POST['sns_name'], ENT_QUOTES)); ?>" />
         </div>
         <div class="form-group">
-          <label>メールアドレス</label>
-          <input class="form-control" name="email" type="email" value="<?php print(htmlspecialchars($_POST['email'], ENT_QUOTES)); ?>" />
-          <?php if ($error['email'] === 'blank'): ?>
-            <p class="error">*メールアドレスを入力してください</p>
+          <label>ユーザーid</label>
+          <input class="form-control" name="user_id" type="user_id" value="<?php print(htmlspecialchars($_POST['user_id'], ENT_QUOTES)); ?>" />
+          <?php if ($error['user_id'] === 'blank'): ?>
+            <p class="error">*ユーザーidを入力してください</p>
           <?php endif; ?>
-          <?php if ($error['email'] === 'duplicate'): ?>
-            <p class="error">*指定されたメールアドレスは、すでに登録されています</p>
+          <?php if ($error['user_id'] === 'duplicate'): ?>
+            <p class="error">*指定されたユーザーidは、すでに登録されています</p>
           <?php endif; ?>
         </div>
         <div class="form-group">
