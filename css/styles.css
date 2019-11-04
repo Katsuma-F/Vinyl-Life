@@ -7,6 +7,7 @@ body {
   padding-bottom: 234px;
   box-sizing: border-box;
   background-color: #EFEFEF;
+  font-family: 'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
 }
 
 .navbar {
@@ -118,17 +119,8 @@ body {
   font-size: 13px;
 }
 
-.card .info-area .addFavorite {
-  margin: 0 14px 0 5px;
-}
-
-/* .fa-bookmark::before {
-  content: #f02e;
-} */
-
-.addFavorite img {
-  width: 16px;
-  height: 16px;
+.card .info-area p {
+  margin-bottom: 0;
 }
 
 .pagination {
@@ -144,6 +136,11 @@ body {
 
 .page-link {
   color: #dc3545 !important;
+}
+
+/* join/ */
+.form-group .error {
+  color: #dc3545;
 }
 
 /* footer */
