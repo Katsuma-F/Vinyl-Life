@@ -5,6 +5,9 @@ if (isset($_SESSION['id'])) {
   $users = $db->prepare('SELECT * FROM users WHERE id=?');
   $users->execute(array($_SESSION['id']));
   $user = $users->fetch();
+} elseif ($_SESSION['time'] + 3600 > time()) {
+  header('Location: logout.php');
+  exit();
 }
 
 ?>

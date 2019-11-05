@@ -66,25 +66,25 @@ if (!empty($_POST)) {
   <div class="container">
     <div class="mx-auto w-75">
       <form action="" method="post">
-        <h1>ログイン</h1>
+        <h1 class="mb-5">ログイン</h1>
         <div class="form-group">
-          <input class="form-control" name="user_id" type="text" placeholder="ユーザーid" value="<?php print(htmlspecialchars($UserId, ENT_QUOTES)); ?>" />
+          <input class="form-control mb-4" name="user_id" type="text" placeholder="ユーザーid" value="<?php print(htmlspecialchars($UserId, ENT_QUOTES)); ?>" />
           <?php if ($error['login'] === 'blank'): ?>
             <p class="error">*ユーザーidとパスワードをご記入ください</p>
           <?php endif; ?>
           <?php if ($error['login'] === 'failed'): ?>
-            <p class="error">*ログインに失敗しました。正しくご記入ください</p>
+            <p class="error">*ログインに失敗しました、正しくご記入ください。</p>
           <?php endif; ?>
         </div>
         <div class="form-group">
-          <input class="form-control" name="password" type="password" placeholder="パスワード" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
+          <input class="form-control mb-5" name="password" type="password" placeholder="パスワード" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
         </div>
         <dd>ログイン情報の記録</dd>
         <dt>
           <input id="save" name="save" type="checkbox" value="on">
           <label for="save">次回からは自動的にログインする</label>
         </dt>
-        <button class="btn btn-danger" name="login" type="submit">ログインする</button>
+        <button class="btn btn-danger mr-4" name="login" type="submit">ログインする</button>
         <a href="./join/index.php">会員登録はこちら</a>
       </form>
     </div>
@@ -96,7 +96,7 @@ if (!empty($_POST)) {
       <address>© Vinyl-Life</address>
     </div>
     <div class="footer-lower">
-      <a href="/">ホーム</a>
+      <a href="./index.php">ホーム</a>
     </div>
   </div>
 
