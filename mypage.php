@@ -131,7 +131,7 @@ include('posts.php');
               <form action="" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                   <input type="hidden">
-                  <p>「セットのタイトル」を削除してもよろしいでしょうか？</p>
+                  <p>本当に削除してもよろしいでしょうか？</p>
                   <input type="hidden" name="folder_pk">
                 </div>
                 <div class="modal-footer">
