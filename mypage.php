@@ -77,14 +77,6 @@ include('posts.php');
         <?php print(htmlspecialchars($user['sns_name'], ENT_QUOTES)); ?>
       </p>
     </div>
-      <?php if (!empty($_POST)): ?>
-        <div class="alert alert-danger alert-dismissble fade show" role="alert">
-          リストがまだありません。作成ボタンからパーツセットを作成してみましょう！
-          <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-      <?php endif; ?>
     <center>
       <a href="#" class="btn btn-danger col-12 mb-4 mx-auto" data-toggle="modal" data-target="#myModal">パーツセットを作成する</a>
     </center>
@@ -227,7 +219,7 @@ include('posts.php');
               <input type="text" name="other_parts" class="form-control" placeholder="針（カートリッジ）etc." autofocus="autofocus" maxlength="50" id="id_otherparts">
             </p>
             <p>
-              <label for="id_description">説明文：</label>
+              <label for="id_description">※説明文：</label>
               <textarea class="form-control" name="description" placeholder="このセットについての説明(280文字以内)" autofocus="autofocus" maxlength="280" id="id_description" required></textarea>
             </p>
           </div>
