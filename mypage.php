@@ -194,6 +194,7 @@ include('posts.php');
               <label for="id_file">※セットの写真：</label>
               <input type="file" name="image" value="test" id="id_file" required>
             </p>
+            <p>*写真は「.jpg」「.gif」「.png」の画像を指定してください</p>
             <p>
               <label for="id_title">※タイトル：</label>
               <input type="text" name="title" class="form-control" placeholder="このセットのタイトルをご記入ください" autofocus="autofocus" maxlength="50" id="id_title" required>
