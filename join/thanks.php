@@ -37,7 +37,7 @@
       <address>© Vinyl-Life</address>
     </div>
     <div class="footer-lower">
-      <a href="./index.php">ホーム</a>
+      <a href="../index.php">ホーム</a>
     </div>
   </div>
 

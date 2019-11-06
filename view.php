@@ -131,7 +131,7 @@ $posts->execute(array($_REQUEST['card_id']));
       <address>© Vinyl-Life</address>
     </div>
     <div class="footer-lower">
-      <a href="/">ホーム</a>
+      <a href="./index.php">ホーム</a>
     </div>
   </div>
 
