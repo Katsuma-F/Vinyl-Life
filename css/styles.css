@@ -119,6 +119,10 @@ body {
   font-size: 13px;
 }
 
+.info-area .text-primary {
+  color: #dc3545 !important;
+}
+
 .card .info-area p {
   margin-bottom: 0;
 }
