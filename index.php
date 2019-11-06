@@ -1,12 +1,12 @@
 <?php
 session_start();
-require('dbconnect.php');
+require('./dbconnect.php');
 require('./getlog/getlogged-inuser.php');
 
-require('createset.php');
+require('./createset.php');
 
-require('paging.php');
-require('posts.php');
+require('./paging.php');
+require('./posts/posts.php');
 
 ?>
 

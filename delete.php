@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('dbconnect.php');
+require('./dbconnect.php');
 
 if (isset($_SESSION['id'])) {
   $id = $_REQUEST['card_id'];

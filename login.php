@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('dbconnect.php');
+require('./dbconnect.php');
 
 if ($_COOKIE['user_id'] !== '') {
   $UserId = $_COOKIE['user_id'];
