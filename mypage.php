@@ -6,8 +6,7 @@ include('./getlog/always-getlogged-inuser.php');
 
 include('createset.php');
 
-include('paging.php');
-include('posts.php');
+include('myposts.php');
 
 ?>
 
@@ -150,29 +149,6 @@ include('posts.php');
 
     </div>
     <!-- ./row -->
-
-    <!-- Pagination -->
-    <ul class="pagination">
-      <?php if ($page > 1): ?>
-        <li class="page-item">
-          <a class="page-link" href="mypage.php?page=<?php print($page - 1); ?>" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-      <?php endif; ?>
-      <?php for ($x = 1; $x <= $pagination; $x++): ?>
-        <li class="page-item <?php if ($page === $x) { echo 'active'; } ?>">
-          <a class="page-link" href="mypage.php?page=<?php echo $x; ?>"><?php echo $x; ?></a>
-        </li>
-      <?php endfor; ?>
-      <?php if ($page < $pagination): ?>
-        <li class="page-item">
-          <a class="page-link" href="mypage.php?page=<?php print($page + 1); ?>" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      <?php endif; ?>
-    </ul>
 
   </div>
   <!-- ./container -->
