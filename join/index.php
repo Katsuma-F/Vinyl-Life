@@ -3,51 +3,51 @@ session_start();
 require('../dbconnect.php');
 
 if (!empty($_POST)) {
-  // 会員登録内容のエラーチェック
-  if ($_POST['name'] === '') {
-		$error['name'] = 'blank';
-	}
-	if ($_POST['user_id'] === '') {
-		$error['user_id'] = 'blank';
-	}
-	if (strlen($_POST['password']) < 4 && strlen($_POST['password']) > 32) {
-		$error['password'] = 'length';
-	}
-	if ($_POST['password'] === '') {
-		$error['password'] = 'blank';
-	}
+    // 会員登録内容のエラーチェック
+    if ($_POST['name'] === '') {
+        $error['name'] = 'blank';
+  	}
+  	if ($_POST['user_id'] === '') {
+    		$error['user_id'] = 'blank';
+  	}
+  	if (strlen($_POST['password']) < 4 && strlen($_POST['password']) > 32) {
+    		$error['password'] = 'length';
+  	}
+  	if ($_POST['password'] === '') {
+    		$error['password'] = 'blank';
+  	}
 
-  $fileName = $_FILES['picture']['name'];
-  if (!empty($fileName)) {
-    $ext = substr($fileName, -3);
-    if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
-      $error['picture'] = 'type';
+    $fileName = $_FILES['picture']['name'];
+    if (!empty($fileName)) {
+        $ext = substr($fileName, -3);
+        if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
+            $error['picture'] = 'type';
+        }
     }
-  }
 
-  // アカウントの重複チェック
-  if (empty($error)) {
-    $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE user_id=?');
-    $user->execute(array($_POST['user_id']));
-    $record = $user->fetch();
-    if ($record['cnt'] > 0) {
-      $error['user_id'] = 'duplicate';
+    // アカウントの重複チェック
+    if (empty($error)) {
+        $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE user_id=?');
+        $user->execute(array($_POST['user_id']));
+        $record = $user->fetch();
+        if ($record['cnt'] > 0) {
+            $error['user_id'] = 'duplicate';
+        }
     }
-  }
 
-  // プロフィール写真の情報をフォルダに保存
-  if (empty($error)) {
-    $picture = date('YmdHis') . $_FILES['picture']['name'];
-    move_uploaded_file($_FILES['picture']['tmp_name'], '../user_picture/' . $picture);
-    $_SESSION['join'] = $_POST;
-    $_SESSION['join']['picture'] = $picture;
-    header('Location: check.php');
-    exit();
-  }
+    // プロフィール写真の情報をフォルダに保存
+    if (empty($error)) {
+        $picture = date('YmdHis') . $_FILES['picture']['name'];
+        move_uploaded_file($_FILES['picture']['tmp_name'], '../user_picture/' . $picture);
+        $_SESSION['join'] = $_POST;
+        $_SESSION['join']['picture'] = $picture;
+        header('Location: check.php');
+        exit();
+    }
 }
 
 if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
-  $_POST = $_SESSION['join'];
+    $_POST = $_SESSION['join'];
 }
 
  ?>
@@ -85,18 +85,18 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         <h1 style="margin-bottom: 35px;">会員登録</h1>
         <div class="form-group">
           <label>ユーザー名</label>
-          <input class="form-control" name="name" type="text" value="<?php print(htmlspecialchars($_POST['name'], ENT_QUOTES)); ?>" />
+          <input class="form-control" name="name" type="text" value="<?php print(htmlspecialchars($_POST['name'], ENT_QUOTES)); ?>">
           <?php if ($error['name'] === 'blank'): ?>
             <p class="error">*ユーザー名を入力してください</p>
           <?php endif; ?>
         </div>
         <div class="form-group">
           <label>*任意  Twitterアカウント名</label>
-          <input class="form-control" name="sns_name" type="text" placeholder="@" value="<?php print(htmlspecialchars($_POST['sns_name'], ENT_QUOTES)); ?>" />
+          <input class="form-control" name="sns_name" type="text" placeholder="@" value="<?php print(htmlspecialchars($_POST['sns_name'], ENT_QUOTES)); ?>">
         </div>
         <div class="form-group">
           <label>ユーザーid</label>
-          <input class="form-control" name="user_id" type="user_id" value="<?php print(htmlspecialchars($_POST['user_id'], ENT_QUOTES)); ?>" />
+          <input class="form-control" name="user_id" type="user_id" value="<?php print(htmlspecialchars($_POST['user_id'], ENT_QUOTES)); ?>">
           <?php if ($error['user_id'] === 'blank'): ?>
             <p class="error">*ユーザーidを入力してください</p>
           <?php endif; ?>
@@ -106,7 +106,8 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         </div>
         <div class="form-group">
           <label>パスワード</label>
-          <input class="form-control" name="password" type="password" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
+          <input class="form-control" name="password" type="password" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>">
+          <p>*パスワードは4文字以上、32文字以下で入力してください</p>
           <?php if ($error['password'] === 'length'): ?>
             <p class="error">*パスワードは4文字以上、32文字以下で入力してください</p>
           <?php endif; ?>
@@ -116,9 +117,9 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         </div>
         <div class="form-group">
           <label>プロフィール写真：</label>
-          <input type="file" name="picture" value="test" />
+          <input type="file" name="picture" value="test">
         </div>
-        <input class="btn btn-danger" type="submit" value="入力内容を確認する" />
+        <input class="btn btn-danger" type="submit" value="入力内容を確認する">
         <?php if ($error['picture'] === 'type'): ?>
           <p class="error">*写真は「.jpg」「.gif」「.png」の画像を指定してください</p>
         <?php endif; ?>

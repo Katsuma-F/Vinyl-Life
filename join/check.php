@@ -3,23 +3,23 @@ session_start();
 require('../dbconnect.php');
 
 if (!isset($_SESSION['join'])) {
-  header('Location: index.php');
-  exit();
+    header('Location: index.php');
+    exit();
 }
 
 if (!empty($_POST)) {
-  $statement = $db->prepare('INSERT INTO users SET name=?, sns_name=?, user_id=?, password=?, picture=?, created_at=NOW()');
-  $statement->execute(array(
-    $_SESSION['join']['name'],
-    $_SESSION['join']['sns_name'],
-    $_SESSION['join']['user_id'],
-    sha1($_SESSION['join']['password']),
-    $_SESSION['join']['picture']
-  ));
-  unset($_SESSION['join']);
+    $statement = $db->prepare('INSERT INTO users SET name=?, sns_name=?, user_id=?, password=?, picture=?, created_at=NOW()');
+    $statement->execute(array(
+      $_SESSION['join']['name'],
+      $_SESSION['join']['sns_name'],
+      $_SESSION['join']['user_id'],
+      sha1($_SESSION['join']['password']),
+      $_SESSION['join']['picture']
+    ));
+    unset($_SESSION['join']);
 
-  header('Location: thanks.php');
-  exit();
+    header('Location: thanks.php');
+    exit();
 }
 ?>
 
@@ -53,7 +53,7 @@ if (!empty($_POST)) {
     <div class="mx-auto w-75">
       <h1 style="margin-bottom: 35px;">会員登録</h1>
       <form action="" method="post">
-        <input type="hidden" name="action" value="submit" />
+        <input type="hidden" name="action" value="submit">
         <dl>
           <dt>ユーザー名</dt>
           <dd><?php print(htmlspecialchars($_SESSION['join']['name'], ENT_QUOTES)); ?></dd>

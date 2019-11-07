@@ -3,36 +3,36 @@ session_start();
 require('./dbconnect.php');
 
 if ($_COOKIE['user_id'] !== '') {
-  $UserId = $_COOKIE['user_id'];
+    $UserId = $_COOKIE['user_id'];
 }
 
 if (!empty($_POST)) {
-  $UserId = $_POST['user_id'];
+    $UserId = $_POST['user_id'];
 
-  if ($_POST['user_id'] !== '' && $_POST['password'] !== '') {
-    $login = $db->prepare('SELECT * FROM users WHERE user_id=? AND password=?');
-    $login->execute(array(
-      $_POST['user_id'],
-      sha1($_POST['password'])
-    ));
-    $user = $login->fetch();
+    if ($_POST['user_id'] !== '' && $_POST['password'] !== '') {
+        $login = $db->prepare('SELECT * FROM users WHERE user_id=? AND password=?');
+        $login->execute(array(
+          $_POST['user_id'],
+          sha1($_POST['password'])
+        ));
+        $user = $login->fetch();
 
-    if($user) {
-      $_SESSION['id'] = $user['id'];
-      $_SESSION['time'] = time();
+        if($user) {
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['time'] = time();
 
-      if ($_POST['save'] === 'on') {
-        setcookie('user_id', $_POST['user_id'], time()+60*60*24*14);
-      }
+            if ($_POST['save'] === 'on') {
+              setcookie('user_id', $_POST['user_id'], time()+60*60*24*14);
+            }
 
-      header('Location: index.php');
-      exit();
+            header('Location: index.php');
+            exit();
+        } else {
+            $error['login'] = 'failed';
+        }
     } else {
-      $error['login'] = 'failed';
+        $error['login'] = 'blank';
     }
-  } else {
-    $error['login'] = 'blank';
-  }
 }
 
 ?>
@@ -68,7 +68,7 @@ if (!empty($_POST)) {
       <form action="" method="post">
         <h1 class="mb-5">ログイン</h1>
         <div class="form-group">
-          <input class="form-control mb-4" name="user_id" type="text" placeholder="ユーザーid" value="<?php print(htmlspecialchars($UserId, ENT_QUOTES)); ?>" />
+          <input class="form-control mb-4" name="user_id" type="text" placeholder="ユーザーid" value="<?php print(htmlspecialchars($UserId, ENT_QUOTES)); ?>">
           <?php if ($error['login'] === 'blank'): ?>
             <p class="error">*ユーザーidとパスワードをご記入ください</p>
           <?php endif; ?>
@@ -77,7 +77,7 @@ if (!empty($_POST)) {
           <?php endif; ?>
         </div>
         <div class="form-group">
-          <input class="form-control mb-5" name="password" type="password" placeholder="パスワード" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
+          <input class="form-control mb-5" name="password" type="password" placeholder="パスワード" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>">
         </div>
         <dd>ログイン情報の記録</dd>
         <dt>

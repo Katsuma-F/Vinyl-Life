@@ -5,8 +5,8 @@ require('./dbconnect.php');
 include('./getlog/always-getlogged-inuser.php');
 
 if (empty($_REQUEST['card_id'])) {
-  header('Location: index.php');
-  exit();
+    header('Location: index.php');
+    exit();
 }
 
 $posts = $db->prepare('SELECT u.name, u.sns_name, u.picture, p.* FROM users u, posts p WHERE u.id=p.user_id AND p.card_id=?');
