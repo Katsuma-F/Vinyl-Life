@@ -6,16 +6,16 @@ if (!empty($_POST)) {
     // 会員登録内容のエラーチェック
     if ($_POST['name'] === '') {
         $error['name'] = 'blank';
-  	}
-  	if ($_POST['user_id'] === '') {
-    		$error['user_id'] = 'blank';
-  	}
-  	if (strlen($_POST['password']) < 4 || strlen($_POST['password']) > 32) {
-    		$error['password'] = 'length';
-  	}
-  	if ($_POST['password'] === '') {
-    		$error['password'] = 'blank';
-  	}
+    }
+    if ($_POST['user_id'] === '') {
+        $error['user_id'] = 'blank';
+    }
+    if (strlen($_POST['password']) < 4 || strlen($_POST['password']) > 32) {
+        $error['password'] = 'length';
+    }
+    if ($_POST['password'] === '') {
+        $error['password'] = 'blank';
+    }
 
     $fileName = $_FILES['picture']['name'];
     if (!empty($fileName)) {
