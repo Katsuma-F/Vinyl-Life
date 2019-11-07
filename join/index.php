@@ -10,7 +10,7 @@ if (!empty($_POST)) {
   	if ($_POST['user_id'] === '') {
     		$error['user_id'] = 'blank';
   	}
-  	if (strlen($_POST['password']) < 4 && strlen($_POST['password']) > 32) {
+  	if (strlen($_POST['password']) < 4 || strlen($_POST['password']) > 32) {
     		$error['password'] = 'length';
   	}
   	if ($_POST['password'] === '') {
@@ -107,7 +107,7 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         <div class="form-group">
           <label>パスワード</label>
           <input class="form-control" name="password" type="password" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>">
-          <p>*パスワードは4文字以上、32文字以下で入力してください</p>
+          <p>※パスワードは4文字以上、32文字以下でご登録ください</p>
           <?php if ($error['password'] === 'length'): ?>
             <p class="error">*パスワードは4文字以上、32文字以下で入力してください</p>
           <?php endif; ?>
