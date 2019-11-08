@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 session_start();
 require('./dbconnect.php');
-include('./getlog/always-getlogged-inuser.php');
+include('./getlog/AlwaysGetLog.php.php');
 
 if (empty($_REQUEST['card_id'])) {
     header('Location: index.php');

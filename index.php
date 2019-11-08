@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('./dbconnect.php');
-require('./getlog/getlogged-inuser.php');
+require('./getlog/GetLog.php');
 
 require('./createset.php');
 
