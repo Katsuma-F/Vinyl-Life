@@ -43,7 +43,7 @@ if (!empty($_POST)) {
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand text-light" href="../index.php">
-        <img src="../img/record_player.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        <img src="../img/record_player.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
         Vinyl-Life
       </a>
     </div>
@@ -66,7 +66,7 @@ if (!empty($_POST)) {
           <dt>プロフィール写真</dt>
           <dd>
             <?php if ($_SESSION['join']['picture'] != ''): ?>
-              <img src="../user_picture/<?php print(htmlspecialchars($_SESSION['join']['picture'], ENT_QUOTES)); ?>" class="rounded" style="width: 100px; height: 100px;">
+              <img src="../user_picture/<?php print(htmlspecialchars($_SESSION['join']['picture'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 100px; height: 100px;">
             <?php endif; ?>
           </dd>
         </dl>
