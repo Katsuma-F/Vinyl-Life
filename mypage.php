@@ -32,7 +32,7 @@ include('./posts/myposts.php');
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand text-light" href="index.php">
-        <img src="./img/record_player.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        <img src="./img/record_player.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
         Vinyl-Life
       </a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@ include('./posts/myposts.php');
         <ul class="navbar-nav justify-content-end my-2">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded" style="width: 30px; height: 30px; margin-right: 10px">
+              <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 30px; height: 30px; margin-right: 10px">
               <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
             </a>
             <div class="dropdown-menu" aria-labelledby="userMenu">
@@ -86,18 +86,18 @@ include('./posts/myposts.php');
         <?php if ($_SESSION['id'] == $post['user_id']): ?>
           <div class="col-12 col-sm-6 col-md-4 col-lg-4">
             <div class="card">
-              <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'])); ?>">
+              <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>">
                 <div class="row no-gutters card-area">
-                  <img src="card_image/<?php print(htmlspecialchars($post['card_image'], ENT_QUOTES)); ?>" class="card-img-top">
+                  <img src="card_image/<?php print(htmlspecialchars($post['card_image'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
                 </div>
               </a>
               <div class="title-area">
-                <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'])); ?>" class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></a>
+                <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>" class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></a>
               </div>
               <div class="profile-area">
                 <div class="profile-thum">
                   <a href="#">
-                    <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="画像">
+                    <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
                   </a>
                 </div>
                 <div class="profile-username">
@@ -134,7 +134,7 @@ include('./posts/myposts.php');
                   <input type="hidden" name="folder_pk">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" onclick="location.href='delete.php?card_id=<?php print(htmlspecialchars($post['card_id'])); ?>'" class="btn btn-danger form-control" name="delete_folder">削除</button>
+                    <button type="button" onclick="location.href='delete.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>'" class="btn btn-danger form-control" name="delete_folder">削除</button>
                 </div>
                 <!-- ./modal-footer -->
               </form>

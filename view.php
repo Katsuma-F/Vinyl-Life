@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 session_start();
 require('./dbconnect.php');
-include('./getlog/AlwaysGetLog.php.php');
+include('./getlog/AlwaysGetLog.php');
 
 if (empty($_REQUEST['card_id'])) {
     header('Location: index.php');
@@ -37,7 +37,7 @@ $posts->execute(array($_REQUEST['card_id']));
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand text-light" href="index.php">
-        <img src="./img/record_player.png" width="40" height="40" class="d-inline-block align-top" alt="">
+        <img src="./img/record_player.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
         Vinyl-Life
       </a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +54,7 @@ $posts->execute(array($_REQUEST['card_id']));
         <ul class="navbar-nav justify-content-end my-2">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded" style="width: 30px; height: 30px; margin-right: 10px">
+              <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 30px; height: 30px; margin-right: 10px">
               <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
             </a>
             <div class="dropdown-menu" aria-labelledby="userMenu">
@@ -75,7 +75,7 @@ $posts->execute(array($_REQUEST['card_id']));
         <div class="col-12 col-sm-12 col-md-10 col-lg-8">
           <div class="card">
             <div class="row no-gutters card-area" style="height: 470px !important;">
-              <img src="card_image/<?php print(htmlspecialchars($post['card_image'], ENT_QUOTES)); ?>" class="card-img-top">
+              <img src="card_image/<?php print(htmlspecialchars($post['card_image'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
             </div>
             <div class="title-area" style="height: 60px !important;">
               <p class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></p>
@@ -83,7 +83,7 @@ $posts->execute(array($_REQUEST['card_id']));
             <div class="profile-area">
               <div class="profile-thum">
                 <a href="#">
-                  <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="画像">
+                  <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
                 </a>
               </div>
               <div class="profile-username">
