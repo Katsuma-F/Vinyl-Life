@@ -7,10 +7,13 @@ if (!empty($_POST)) {
     if ($_POST['name'] === '') {
         $error['name'] = 'blank';
     }
+    if (strlen($_POST['user_id']) < 6 || strlen($_POST['user_id'] > 64)) {
+        $error['user_id'] = 'length';
+    }
     if ($_POST['user_id'] === '') {
         $error['user_id'] = 'blank';
     }
-    if (strlen($_POST['password']) < 4 || strlen($_POST['password']) > 32) {
+    if (strlen($_POST['password']) < 8 || strlen($_POST['password']) > 32) {
         $error['password'] = 'length';
     }
     if ($_POST['password'] === '') {
@@ -97,6 +100,10 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         <div class="form-group">
           <label>ユーザーid</label>
           <input class="form-control" name="user_id" type="user_id" value="<?php print(htmlspecialchars($_POST['user_id'], ENT_QUOTES)); ?>">
+          <p>※ユーザーidは6文字以上、64文字以下でご登録ください</p>
+          <?php if ($error['user_id'] === 'length'): ?>
+            <p class="error">*ユーザーidは6文字以上、64文字以下で入力してください</p>
+          <?php endif; ?>
           <?php if ($error['user_id'] === 'blank'): ?>
             <p class="error">*ユーザーidを入力してください</p>
           <?php endif; ?>
@@ -107,9 +114,9 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         <div class="form-group">
           <label>パスワード</label>
           <input class="form-control" name="password" type="password" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>">
-          <p>※パスワードは4文字以上、32文字以下でご登録ください</p>
+          <p>※パスワードは8文字以上、32文字以下でご登録ください</p>
           <?php if ($error['password'] === 'length'): ?>
-            <p class="error">*パスワードは4文字以上、32文字以下で入力してください</p>
+            <p class="error">*パスワードは8文字以上、32文字以下で入力してください</p>
           <?php endif; ?>
           <?php if ($error['password'] === 'blank'): ?>
             <p class="error">*パスワードを入力してください</p>
