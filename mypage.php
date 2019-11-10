@@ -96,9 +96,7 @@ include('./posts/myposts.php');
               </div>
               <div class="profile-area">
                 <div class="profile-thum">
-                  <a href="#">
-                    <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
-                  </a>
+                  <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
                 </div>
                 <div class="profile-username">
                   <a href="#" class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></a>
@@ -134,7 +132,7 @@ include('./posts/myposts.php');
                   <input type="hidden" name="folder_pk">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" onclick="location.href='delete.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>'" class="btn btn-danger form-control" name="delete_folder">削除</button>
+                  <button type="button" onclick="location.href='delete.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>'" class="btn btn-danger form-control" name="delete_folder">削除</button>
                 </div>
                 <!-- ./modal-footer -->
               </form>

@@ -4,3 +4,5 @@ card_image/
 img/
 # プロフィール写真
 user_picture/
+
+.gitignore.swp

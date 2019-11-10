@@ -107,9 +107,7 @@ require('./posts/posts.php');
             </div>
             <div class="profile-area">
               <div class="profile-thum">
-                <a href="#">
-                  <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
-                </a>
+                <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
               </div>
               <div class="profile-username">
                 <a href="#" class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></a>

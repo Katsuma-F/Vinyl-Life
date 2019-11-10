@@ -99,8 +99,7 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         </div>
         <div class="form-group">
           <label>ユーザーid</label>
-          <input class="form-control" name="user_id" type="user_id" value="<?php print(htmlspecialchars($_POST['user_id'], ENT_QUOTES)); ?>">
-          <p>※ユーザーidは6文字以上、64文字以下でご登録ください</p>
+          <input class="form-control" name="user_id" type="user_id" placeholder="6文字以上、64文字以下でご登録ください" value="<?php print(htmlspecialchars($_POST['user_id'], ENT_QUOTES)); ?>">
           <?php if ($error['user_id'] === 'length'): ?>
             <p class="error">*ユーザーidは6文字以上、64文字以下で入力してください</p>
           <?php endif; ?>
@@ -113,8 +112,7 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         </div>
         <div class="form-group">
           <label>パスワード</label>
-          <input class="form-control" name="password" type="password" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>">
-          <p>※パスワードは8文字以上、32文字以下でご登録ください</p>
+          <input class="form-control" name="password" type="password" placeholder="8文字以上、32文字以下でご登録ください" value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>">
           <?php if ($error['password'] === 'length'): ?>
             <p class="error">*パスワードは8文字以上、32文字以下で入力してください</p>
           <?php endif; ?>
