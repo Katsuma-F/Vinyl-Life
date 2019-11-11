@@ -83,7 +83,7 @@ include('./posts/myposts.php');
     <!-- My-Card-Items -->
     <div class="row">
       <?php foreach ($posts as $post): ?>
-        <?php if ($_SESSION['id'] == $post['user_id']): ?>
+        <?php if ($_SESSION['id'] === $post['user_id']): ?>
           <div class="col-12 col-sm-6 col-md-4 col-lg-4">
             <div class="card">
               <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>">
