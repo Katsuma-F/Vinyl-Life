@@ -47,7 +47,7 @@ $posts->execute(array($_REQUEST['card_id']));
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <li class="nav-item">
-              <a class="nav-link" href="mypage.php">マイページ</a>
+              <a class="nav-link" href="./mypage.php">マイページ</a>
             </li>
           </li>
         </ul>
@@ -58,8 +58,8 @@ $posts->execute(array($_REQUEST['card_id']));
               <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
             </a>
             <div class="dropdown-menu" aria-labelledby="userMenu">
-              <a class="dropdown-item" href="mypage.php">マイページ</a>
-              <a class="dropdown-item" href="logout.php">ログアウト</a>
+              <a class="dropdown-item" href="./mypage.php">マイページ</a>
+              <a class="dropdown-item" href="./logout.php">ログアウト</a>
             </div>
           </li>
         </ul>
@@ -82,12 +82,10 @@ $posts->execute(array($_REQUEST['card_id']));
             </div>
             <div class="profile-area">
               <div class="profile-thum">
-                <a href="#">
-                  <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
-                </a>
+                <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
               </div>
               <div class="profile-username">
-                <a href="#" class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></a>
+                <p class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></p>
               </div>
               <div class="sns-username">
                 <p class="sns-username"><?php print(htmlspecialchars($post['sns_name'], ENT_QUOTES)); ?></p>
