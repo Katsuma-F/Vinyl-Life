@@ -1,7 +1,9 @@
 # 投稿画像
-card_image/
+card_image/*
+!.gitkeep
 
 # プロフィール写真
-user_picture/
+user_picture/*
+!.gitkeep
 
 .gitignore.swp
