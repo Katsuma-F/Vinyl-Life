@@ -8,7 +8,7 @@ if (!empty($_POST)) {
         }
     }
 
-    if (empty($error) && $_FILES['image'] !== '' && $_POST['title'] !== '' && $_POST['recordplayer'] !== '' && $_POST['speaker'] !== '' && $_POST['description'] !== '') {
+    if (empty($error) && $_FILES['image'] !== '' && $_POST['title'] !== '' && $_POST['record_player'] !== '' && $_POST['speaker'] !== '' && $_POST['description'] !== '') {
         $image = date('YmdHis') . $_FILES['image']['name'];
         move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/card_image' . '/' . $image);
         $card_image = $image;
