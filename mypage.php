@@ -31,7 +31,7 @@ include('./posts/myposts.php');
   <!-- Header -->
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand text-light" href="index.php">
+      <a class="navbar-brand text-light" href="./index.php">
         <img src="./img/record_player.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
         Vinyl-Life
       </a>
@@ -66,7 +66,7 @@ include('./posts/myposts.php');
   <div class="container">
     <div class="user-area">
       <div class="user-thum">
-        <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="画像" style="width: 70px; height: 70px;">
+        <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真" style="width: 70px; height: 70px;">
       </div>
       <div class="user-username">
         <?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?>
@@ -194,8 +194,8 @@ include('./posts/myposts.php');
               <input type="text" name="other_parts" class="form-control" placeholder="針（カートリッジ）etc." autofocus="autofocus" maxlength="50" id="id_otherparts">
             </p>
             <p>
-              <label for="id_description">※説明文：</label>
-              <textarea class="form-control" name="description" placeholder="このセットについての説明(280文字以内)" autofocus="autofocus" maxlength="280" id="id_description" required></textarea>
+              <label for="id_description">※解説：</label>
+              <textarea class="form-control" name="description" placeholder="このセットについての解説(280文字以内)" autofocus="autofocus" maxlength="280" id="id_description" required></textarea>
             </p>
           </div>
           <div class="modal-footer">
