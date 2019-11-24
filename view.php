@@ -5,11 +5,11 @@ require('./dbconnect.php');
 include('./getlog/AlwaysGetLog.php');
 
 if (empty($_REQUEST['card_id'])) {
-    header('Location: index.php');
+    header('Location: .join/index.php');
     exit();
 }
 
-$posts = $db->prepare('SELECT u.name, u.sns_name, u.picture, p.* FROM users u, posts p WHERE u.id=p.user_id AND p.card_id=?');
+$posts = $db->prepare('SELECT u.name, u.sns_name, u.picture, p.* FROM users u, posts p WHERE u.id = p.user_id AND p.card_id = ?');
 $posts->execute(array($_REQUEST['card_id']));
 
 ?>
@@ -75,7 +75,7 @@ $posts->execute(array($_REQUEST['card_id']));
         <div class="col-12 col-sm-12 col-md-10 col-lg-8">
           <div class="card">
             <div class="row no-gutters card-area" style="height: 470px !important;">
-              <img src="card_image/<?php print(htmlspecialchars($post['card_image'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
+              <img src="cardimg-load.php?id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
             </div>
             <div class="title-area" style="height: 60px !important;">
               <p class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></p>

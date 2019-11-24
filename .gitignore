@@ -1,7 +1,3 @@
-# 投稿画像
-card_image/*
-!.gitkeep
-
 # プロフィール写真
 user_picture/*
 !.gitkeep

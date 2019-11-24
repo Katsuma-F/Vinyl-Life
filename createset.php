@@ -1,35 +1,36 @@
 <?php
 if (!empty($_POST)) {
-    $fileName = $_FILES['image']['name'];
-    if (!empty($fileName)) {
-        $ext = substr($fileName, -3);
+    $FileName = $_FILES['image']['name'];
+    if (!empty($FileName)) {
+        // 画像ファイルの拡張子チェック
+        $ext = substr($FileName, -3);
         if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
             $error['image'] = 'type';
         }
+
+        if (empty($error) && $_POST['title'] !== '' && $_POST['record_player'] !== '' && $_POST['speaker'] !== '' && $_POST['description'] !== '') {
+            // 投稿画像データを各変数に代入
+            $type = $_FILES['image']['type'];
+            $content = file_get_contents($_FILES['image']['tmp_name']);
+            // パーツセットの情報をデータベースに保存
+            $sql = 'INSERT INTO posts (image_type, image_content, title, record_player, speaker, phono_equalizer, amplifier, other_parts, description, user_id, created_at) VALUES (:image_type, :image_content, :title, :record_player, :speaker, :phono_equalizer, :amplifier, :other_parts, :description, :user_id, NOW())';
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':image_type', $type, PDO::PARAM_STR);
+            $stmt->bindValue(':image_content', $content, PDO::PARAM_STR);
+            $stmt->bindValue(':title', $_POST['title'], PDO::PARAM_STR);
+            $stmt->bindValue(':record_player', $_POST['record_player'], PDO::PARAM_STR);
+            $stmt->bindValue(':speaker', $_POST['speaker'], PDO::PARAM_STR);
+            $stmt->bindValue(':phono_equalizer', $_POST['phono_equalizer'], PDO::PARAM_STR);
+            $stmt->bindValue(':amplifier', $_POST['amplifier'], PDO::PARAM_STR);
+            $stmt->bindValue(':other_parts', $_POST['other_parts'], PDO::PARAM_STR);
+            $stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
+            $stmt->bindValue(':user_id', $user['id'], PDO::PARAM_STR);
+            $stmt->execute();
+        }
     }
 
-    if (empty($error) && $_FILES['image'] !== '' && $_POST['title'] !== '' && $_POST['record_player'] !== '' && $_POST['speaker'] !== '' && $_POST['description'] !== '') {
-        $image = date('YmdHis') . $_FILES['image']['name'];
-        move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/card_image' . '/' . $image);
-        $card_image = $image;
-
-        // パーツセットの情報をデータベースに保存
-        $card = $db->prepare('INSERT INTO posts SET card_image=?, title=?, record_player=?, speaker=?, phono_equalizer=?, amplifier=?, other_parts=?, description=?, user_id=?, created_at=NOW()');
-        $card->execute(array(
-          $card_image,
-          $_POST['title'],
-          $_POST['record_player'],
-          $_POST['speaker'],
-          $_POST['phono_equalizer'],
-          $_POST['amplifier'],
-          $_POST['other_parts'],
-          $_POST['description'],
-          $user['id']
-        ));
-
-        header('Location: mypage.php');
-        exit();
-    }
+    header('Location: mypage.php');
+    exit();
 }
 
 ?>
