@@ -30,7 +30,7 @@ if (!empty($_POST)) {
 
     // アカウントの重複チェック
     if (empty($error)) {
-        $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE user_id=?');
+        $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE user_id = ?');
         $user->execute(array($_POST['user_id']));
         $record = $user->fetch();
         if ($record['cnt'] > 0) {

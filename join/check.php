@@ -8,7 +8,7 @@ if (!isset($_SESSION['join'])) {
 }
 
 if (!empty($_POST)) {
-    $statement = $db->prepare('INSERT INTO users SET name=?, sns_name=?, user_id=?, password=?, picture=?, created_at=NOW()');
+    $statement = $db->prepare('INSERT INTO users SET name = ?, sns_name = ?, user_id = ?, password = ?, picture = ?, created_at = NOW()');
     $statement->execute(array(
       $_SESSION['join']['name'],
       $_SESSION['join']['sns_name'],
