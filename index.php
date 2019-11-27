@@ -58,7 +58,7 @@ require('./posts/posts.php');
           <li class="nav-item dropdown">
             <?php if (isset($_SESSION['id'])): ?>
               <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="user_picture/<?php print(htmlspecialchars($user['picture'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 30px; height: 30px; margin-right: 10px">
+                <img src="user_picture/<?php print(htmlspecialchars($user['profile_picture'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 30px; height: 30px; margin-right: 10px">
                 <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
               </a>
               <div class="dropdown-menu" aria-labelledby="userMenu">
@@ -99,7 +99,7 @@ require('./posts/posts.php');
           <div class="card">
             <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>">
               <div class="row no-gutters card-area">
-                <img src="cardimg-load.php?id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
+                <img src="cardimg-load.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
               </div>
             </a>
             <div class="title-area">
@@ -107,7 +107,7 @@ require('./posts/posts.php');
             </div>
             <div class="profile-area">
               <div class="profile-thum">
-                <img src="user_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
+                <img src="user_picture/<?php print(htmlspecialchars($post['profile_picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
               </div>
               <div class="profile-username">
                 <p class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></p>

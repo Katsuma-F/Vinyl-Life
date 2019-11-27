@@ -18,11 +18,11 @@ if ($page > 1) {
 }
 
 // postsテーブルのデータ件数を取得する
-$page_num = $db->prepare('SELECT COUNT(*) card_id FROM posts');
-$page_num->execute();
-$page_num = $page_num->fetchColumn();
+$pageNum = $db->prepare('SELECT COUNT(*) card_id FROM posts');
+$pageNum->execute();
+$pageNum = $pageNum->fetchColumn();
 
 // ページネーションの数を取得する
-$pagination = ceil($page_num / $limit);
+$pagination = ceil($pageNum / $limit);
 
 ?>

@@ -8,13 +8,13 @@ if (!isset($_SESSION['join'])) {
 }
 
 if (!empty($_POST)) {
-    $statement = $db->prepare('INSERT INTO users SET name = ?, sns_name = ?, user_id = ?, password = ?, picture = ?, created_at = NOW()');
-    $statement->execute(array(
+    $user = $db->prepare('INSERT INTO users SET name = ?, sns_name = ?, user_id = ?, password = ?, profile_picture = ?, created_at = NOW()');
+    $user->execute(array(
       $_SESSION['join']['name'],
       $_SESSION['join']['sns_name'],
       $_SESSION['join']['user_id'],
       sha1($_SESSION['join']['password']),
-      $_SESSION['join']['picture']
+      $_SESSION['join']['profile_picture']
     ));
     unset($_SESSION['join']);
 
@@ -65,8 +65,8 @@ if (!empty($_POST)) {
           <dd>【表示されません】</dd>
           <dt>プロフィール写真</dt>
           <dd>
-            <?php if ($_SESSION['join']['picture'] != ''): ?>
-              <img src="../user_picture/<?php print(htmlspecialchars($_SESSION['join']['picture'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 100px; height: 100px;">
+            <?php if ($_SESSION['join']['profile_picture'] != ''): ?>
+              <img src="../user_picture/<?php print(htmlspecialchars($_SESSION['join']['profile_picture'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 100px; height: 100px;">
             <?php endif; ?>
           </dd>
         </dl>

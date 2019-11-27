@@ -3,11 +3,11 @@ session_start();
 require('./dbconnect.php');
 
 if ($_COOKIE['user_id'] !== '') {
-    $UserID = $_COOKIE['user_id'];
+    $userID = $_COOKIE['user_id'];
 }
 
 if (!empty($_POST)) {
-    $UserID = $_POST['user_id'];
+    $userID = $_POST['user_id'];
 
     if ($_POST['user_id'] !== '' && $_POST['password'] !== '') {
         $login = $db->prepare('SELECT * FROM users WHERE user_id = ? AND password = ?');
@@ -68,7 +68,7 @@ if (!empty($_POST)) {
       <form action="" method="post">
         <h1 class="mb-5">ログイン</h1>
         <div class="form-group">
-          <input class="form-control mb-4" name="user_id" type="text" placeholder="ユーザーid" value="<?php print(htmlspecialchars($UserID, ENT_QUOTES)); ?>">
+          <input class="form-control mb-4" name="user_id" type="text" placeholder="ユーザーid" value="<?php print(htmlspecialchars($userID, ENT_QUOTES)); ?>">
           <?php if ($error['login'] === 'blank'): ?>
             <p class="error">*ユーザーidとパスワードをご記入ください</p>
           <?php endif; ?>

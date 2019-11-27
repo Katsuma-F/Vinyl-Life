@@ -20,11 +20,11 @@ if (!empty($_POST)) {
         $error['password'] = 'blank';
     }
 
-    $fileName = $_FILES['picture']['name'];
+    $fileName = $_FILES['profile_picture']['name'];
     if (!empty($fileName)) {
         $ext = substr($fileName, -3);
         if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
-            $error['picture'] = 'type';
+            $error['profile_picture'] = 'type';
         }
     }
 
@@ -40,10 +40,10 @@ if (!empty($_POST)) {
 
     // プロフィール写真の情報をフォルダに保存
     if (empty($error)) {
-        $picture = date('YmdHis') . $_FILES['picture']['name'];
-        move_uploaded_file($_FILES['picture']['tmp_name'], '../user_picture/' . $picture);
+        $picture = date('YmdHis') . $_FILES['profile_picture']['name'];
+        move_uploaded_file($_FILES['profile_picture']['tmp_name'], '../user_picture/' . $picture);
         $_SESSION['join'] = $_POST;
-        $_SESSION['join']['picture'] = $picture;
+        $_SESSION['join']['profile_picture'] = $picture;
         header('Location: check.php');
         exit();
     }
@@ -122,10 +122,10 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
         </div>
         <div class="form-group">
           <label>プロフィール写真：</label>
-          <input type="file" name="picture" value="test">
+          <input type="file" name="profile_picture" value="test">
         </div>
         <input class="btn btn-danger" type="submit" value="入力内容を確認する">
-        <?php if ($error['picture'] === 'type'): ?>
+        <?php if ($error['profile_picture'] === 'type'): ?>
           <p class="error">*写真は「.jpg」「.gif」「.png」の画像を指定してください</p>
         <?php endif; ?>
         <?php if (!empty($error)): ?>
