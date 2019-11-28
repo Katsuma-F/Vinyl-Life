@@ -97,13 +97,13 @@ require('./posts/posts.php');
       <?php foreach ($posts as $post): ?>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4">
           <div class="card">
-            <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>">
+            <a href="view.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>">
               <div class="row no-gutters card-area">
-                <img src="cardimg-load.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
+                <img src="cardimg-load.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
               </div>
             </a>
             <div class="title-area">
-              <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>" class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></a>
+              <a href="view.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>" class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></a>
             </div>
             <div class="profile-area">
               <div class="profile-thum">

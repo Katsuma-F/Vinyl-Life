@@ -3,14 +3,14 @@ session_start();
 require('./dbconnect.php');
 
 if (isset($_SESSION['id'])) {
-    $id = $_REQUEST['card_id'];
+    $id = $_REQUEST['post_id'];
 
-    $cards = $db->prepare('SELECT * FROM posts WHERE card_id = ?');
-    $cards->execute(array($id));
-    $card = $cards->fetch();
+    $posts = $db->prepare('SELECT * FROM posts WHERE post_id = ?');
+    $posts->execute(array($id));
+    $post = $posts->fetch();
 
-    if ($card['user_id'] == $_SESSION['id']) {
-        $del = $db->prepare('DELETE FROM posts WHERE card_id = ?');
+    if ($post['user_id'] == $_SESSION['id']) {
+        $del = $db->prepare('DELETE FROM posts WHERE post_id = ?');
         $del->execute(array($id));
     }
 }

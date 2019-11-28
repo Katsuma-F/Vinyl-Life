@@ -86,13 +86,13 @@ include('./posts/myposts.php');
         <?php if ($_SESSION['id'] === $post['user_id']): ?>
           <div class="col-12 col-sm-6 col-md-4 col-lg-4">
             <div class="card">
-              <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>">
+              <a href="view.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>">
                 <div class="row no-gutters card-area">
-                  <img src="cardimg-load.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
+                  <img src="cardimg-load.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
                 </div>
               </a>
               <div class="title-area">
-                <a href="view.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>" class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></a>
+                <a href="view.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>" class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></a>
               </div>
               <div class="profile-area">
                 <div class="profile-thum">
@@ -132,7 +132,7 @@ include('./posts/myposts.php');
                   <input type="hidden" name="folder_pk">
                 </div>
                 <div class="modal-footer">
-                  <button type="button" onclick="location.href='delete.php?card_id=<?php print(htmlspecialchars($post['card_id'], ENT_QUOTES)); ?>'" class="btn btn-danger form-control" name="delete_folder">削除</button>
+                  <button type="button" onclick="location.href='delete.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>'" class="btn btn-danger form-control" name="delete_folder">削除</button>
                 </div>
                 <!-- ./modal-footer -->
               </form>

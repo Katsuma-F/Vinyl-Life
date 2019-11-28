@@ -18,7 +18,7 @@ if ($page > 1) {
 }
 
 // postsテーブルのデータ件数を取得する
-$pageNum = $db->prepare('SELECT COUNT(*) card_id FROM posts');
+$pageNum = $db->prepare('SELECT COUNT(*) post_id FROM posts');
 $pageNum->execute();
 $pageNum = $pageNum->fetchColumn();
 
