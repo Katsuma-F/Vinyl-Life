@@ -99,7 +99,7 @@ require('./posts/posts.php');
           <div class="card">
             <a href="view.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>">
               <div class="row no-gutters card-area">
-                <img src="cardimg-load.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
+                <img src="PostImgLoad.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
               </div>
             </a>
             <div class="title-area">

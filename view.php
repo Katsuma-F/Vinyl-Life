@@ -75,7 +75,7 @@ $posts->execute(array($_REQUEST['post_id']));
         <div class="col-12 col-sm-12 col-md-10 col-lg-8">
           <div class="card">
             <div class="row no-gutters card-area" style="height: 470px !important;">
-              <img src="cardimg-load.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
+              <img src="PostImgLoad.php?post_id=<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>" class="card-img-top" alt="投稿画像">
             </div>
             <div class="title-area" style="height: 60px !important;">
               <p class="title"><?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?></p>
