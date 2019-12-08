@@ -9,7 +9,7 @@ if (empty($_REQUEST['post_id'])) {
     exit();
 }
 
-$posts = $db->prepare('SELECT u.name, u.sns_name, u.profile_picture, p.* FROM users u, posts p WHERE u.id = p.user_id AND p.post_id = ?');
+$posts = $db->prepare('SELECT u.id, u.name, u.sns_name, p.* FROM users u, posts p WHERE u.id = p.user_id AND p.post_id = ?');
 $posts->execute(array($_REQUEST['post_id']));
 
 ?>
@@ -54,7 +54,7 @@ $posts->execute(array($_REQUEST['post_id']));
         <ul class="navbar-nav justify-content-end my-2">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="user_picture/<?php print(htmlspecialchars($user['profile_picture'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 30px; height: 30px; margin-right: 10px">
+              <img src="UserImgLoad.php?id=<?php print(htmlspecialchars($user['id'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 30px; height: 30px; margin-right: 10px">
               <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
             </a>
             <div class="dropdown-menu" aria-labelledby="userMenu">
@@ -82,7 +82,7 @@ $posts->execute(array($_REQUEST['post_id']));
             </div>
             <div class="profile-area">
               <div class="profile-thum">
-                <img src="user_picture/<?php print(htmlspecialchars($post['profile_picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
+                <img src="UserImgLoad.php?id=<?php print(htmlspecialchars($post['id'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
               </div>
               <div class="profile-username">
                 <p class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></p>

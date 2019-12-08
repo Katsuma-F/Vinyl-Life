@@ -58,7 +58,7 @@ require('./posts/posts.php');
           <li class="nav-item dropdown">
             <?php if (isset($_SESSION['id'])): ?>
               <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="user_picture/<?php print(htmlspecialchars($user['profile_picture'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 30px; height: 30px; margin-right: 10px">
+                <img src="UserImgLoad.php?id=<?php print(htmlspecialchars($user['id'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 30px; height: 30px; margin-right: 10px">
                 <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
               </a>
               <div class="dropdown-menu" aria-labelledby="userMenu">
@@ -107,7 +107,7 @@ require('./posts/posts.php');
             </div>
             <div class="profile-area">
               <div class="profile-thum">
-                <img src="user_picture/<?php print(htmlspecialchars($post['profile_picture'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
+                <img src="UserImgLoad.php?id=<?php print(htmlspecialchars($post['id'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
               </div>
               <div class="profile-username">
                 <p class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></p>

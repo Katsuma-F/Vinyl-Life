@@ -38,12 +38,13 @@ if (!empty($_POST)) {
         }
     }
 
-    // プロフィール写真の情報をフォルダに保存
     if (empty($error)) {
-        $picture = date('YmdHis') . $_FILES['profile_picture']['name'];
-        move_uploaded_file($_FILES['profile_picture']['tmp_name'], '../user_picture/' . $picture);
+        $type = $_FILES['profile_picture']['type'];
+        $content = file_get_contents($_FILES['profile_picture']['tmp_name']);
         $_SESSION['join'] = $_POST;
-        $_SESSION['join']['profile_picture'] = $picture;
+        $_SESSION['join']['picture_type'] = $type;
+        $_SESSION['join']['profile_picture'] = $content;
+
         header('Location: check.php');
         exit();
     }
@@ -53,33 +54,33 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
     $_POST = $_SESSION['join'];
 }
 
- ?>
+?>
 
- <!DOCTYPE html>
- <html lang="ja" dir="ltr">
- <head>
-   <!-- Required meta tags -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 
-   <title>Vinyl-Life</title>
- </head>
+  <title>Vinyl-Life</title>
+</head>
 
 <body>
- <!-- Header -->
- <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-   <div class="container">
-     <a class="navbar-brand text-light" href="../index.php">
-       <img src="../img/record_player.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-       Vinyl-Life
-     </a>
-   </div>
- </nav>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand text-light" href="../index.php">
+        <img src="../img/record_player.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+        Vinyl-Life
+      </a>
+    </div>
+  </nav>
 
   <!-- 会員登録フォーム -->
   <div class="container">

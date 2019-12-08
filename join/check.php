@@ -8,16 +8,17 @@ if (!isset($_SESSION['join'])) {
 }
 
 if (!empty($_POST)) {
-    $user = $db->prepare('INSERT INTO users SET name = ?, sns_name = ?, user_id = ?, password = ?, profile_picture = ?, created_at = NOW()');
+    $user = $db->prepare('INSERT INTO users SET name = ?, sns_name = ?, user_id = ?, password = ?, picture_type = ?, picture_content = ?, created_at = NOW()');
     $user->execute(array(
-      $_SESSION['join']['name'],
-      $_SESSION['join']['sns_name'],
-      $_SESSION['join']['user_id'],
-      sha1($_SESSION['join']['password']),
-      $_SESSION['join']['profile_picture']
+        $_SESSION['join']['name'],
+        $_SESSION['join']['sns_name'],
+        $_SESSION['join']['user_id'],
+        sha1($_SESSION['join']['password']),
+        $_SESSION['join']['picture_type'],
+        $_SESSION['join']['profile_picture']
     ));
-    unset($_SESSION['join']);
 
+    unset($_SESSION['join']);
     header('Location: thanks.php');
     exit();
 }
@@ -64,11 +65,11 @@ if (!empty($_POST)) {
           <dt>パスワード</dt>
           <dd>【表示されません】</dd>
           <dt>プロフィール写真</dt>
-          <dd>
-            <?php if ($_SESSION['join']['profile_picture'] != ''): ?>
-              <img src="../user_picture/<?php print(htmlspecialchars($_SESSION['join']['profile_picture'], ENT_QUOTES)); ?>" class="rounded" alt="プロフィール写真" style="width: 100px; height: 100px;">
-            <?php endif; ?>
-          </dd>
+          <?php if ($_SESSION['join']['profile_picture'] != ''): ?>
+            <dd>【表示されません】</dd>
+          <?php else: ?>
+            <dd style="color: #dc3545; !important">【ファイルが選択されていません】</dd>
+          <?php endif; ?>
         </dl>
         <a href="index.php?action=rewrite">&laquo;&nbsp;書き直す</a>
         <button class="btn btn-danger" type="submit" value="登録する">登録する</button>
