@@ -10,10 +10,11 @@ if (!empty($_POST)) {
     $userID = $_POST['user_id'];
 
     if ($_POST['user_id'] !== '' && $_POST['password'] !== '') {
-        $login = $db->prepare('SELECT * FROM users WHERE user_id = ? AND password = ?');
+        $sql = 'SELECT * FROM users WHERE user_id = ? AND password = ?';
+        $login = $db->prepare($sql);
         $login->execute(array(
             $_POST['user_id'],
-            sha1($_POST['password'])
+            sha1($_POST['password']),
         ));
         $user = $login->fetch();
 

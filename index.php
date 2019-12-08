@@ -75,18 +75,16 @@ require('./posts/posts.php');
     <!-- Top-Heading -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <center>
-                <h1 class="main-message mb-4">今すぐアナログレコードのある生活を始めよう！</h1>
-                <h6 class="sub-message mb-5">アナログレコードを聴くために必要なパーツセットをシェアするサービスです。</h6>
-                <form>
-                    <?php if (!isset($_SESSION['id'])): ?>
-                        <a href="./join/index.php" class="btn btn-info btn-lg" value="/">
-                            <i class="far fa-registered"></i>
-                            会員登録する
-                        </a>
-                    <?php endif; ?>
-                </form>
-            </center>
+            <h1 class="main-message mb-4">今すぐアナログレコードのある生活を始めよう！</h1>
+            <h6 class="sub-message mb-5">アナログレコードを聴くために必要なパーツセットをシェアするサービスです。</h6>
+            <form>
+                <?php if (!isset($_SESSION['id'])): ?>
+                    <a href="./join/index.php" class="btn btn-info btn-lg" value="/">
+                        <i class="far fa-registered"></i>
+                        会員登録する
+                    </a>
+                <?php endif; ?>
+            </form>
         </div>
     </div>
 

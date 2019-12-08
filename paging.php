@@ -18,7 +18,8 @@ if ($page > 1) {
 }
 
 // postsテーブルのデータ件数を取得する
-$pageNum = $db->prepare('SELECT COUNT(*) post_id FROM posts');
+$sql = 'SELECT COUNT(*) post_id FROM posts';
+$pageNum = $db->prepare($sql);
 $pageNum->execute();
 $pageNum = $pageNum->fetchColumn();
 

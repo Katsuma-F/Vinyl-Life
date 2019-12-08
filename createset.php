@@ -1,19 +1,20 @@
 <?php
 if (!empty($_POST)) {
-    $fileName = $_FILES['image']['name'];
+    $fileName = $_FILES['post_image']['name'];
     if (!empty($fileName)) {
         // 画像ファイルの拡張子チェック
         $ext = substr($fileName, -3);
         if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
-            $error['image'] = 'type';
+            $error['post_image'] = 'type';
         }
 
         if (empty($error) && $_POST['title'] !== '' && $_POST['record_player'] !== '' && $_POST['speaker'] !== '' && $_POST['description'] !== '') {
             // 投稿画像データを各変数に代入
-            $type = $_FILES['image']['type'];
-            $content = file_get_contents($_FILES['image']['tmp_name']);
+            $type = $_FILES['post_image']['type'];
+            $content = file_get_contents($_FILES['post_image']['tmp_name']);
             // パーツセットの情報をデータベースに保存
-            $sql = 'INSERT INTO posts (image_type, image_content, title, record_player, speaker, phono_equalizer, amplifier, other_parts, description, user_id, created_at) VALUES (:image_type, :image_content, :title, :record_player, :speaker, :phono_equalizer, :amplifier, :other_parts, :description, :user_id, NOW())';
+            $sql = 'INSERT INTO posts (image_type, image_content, title, record_player, speaker, phono_equalizer, amplifier, other_parts, description, user_id, created_at)
+                    VALUES (:image_type, :image_content, :title, :record_player, :speaker, :phono_equalizer, :amplifier, :other_parts, :description, :user_id, NOW())';
             $posts = $db->prepare($sql);
             $posts->bindValue(':image_type', $type, PDO::PARAM_STR);
             $posts->bindValue(':image_content', $content, PDO::PARAM_STR);

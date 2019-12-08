@@ -20,17 +20,18 @@ if (!empty($_POST)) {
         $error['password'] = 'blank';
     }
 
-    $fileName = $_FILES['profile_picture']['name'];
+    $fileName = $_FILES['profile_image']['name'];
     if (!empty($fileName)) {
         $ext = substr($fileName, -3);
         if ($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
-            $error['profile_picture'] = 'type';
+            $error['profile_image'] = 'type';
         }
     }
 
     // アカウントの重複チェック
     if (empty($error)) {
-        $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE user_id = ?');
+        $sql = 'SELECT COUNT(*) AS cnt FROM users WHERE user_id = ?';
+        $user = $db->prepare($sql);
         $user->execute(array($_POST['user_id']));
         $record = $user->fetch();
         if ($record['cnt'] > 0) {
@@ -39,11 +40,11 @@ if (!empty($_POST)) {
     }
 
     if (empty($error)) {
-        $type = $_FILES['profile_picture']['type'];
-        $content = file_get_contents($_FILES['profile_picture']['tmp_name']);
+        $type = $_FILES['profile_image']['type'];
+        $content = file_get_contents($_FILES['profile_image']['tmp_name']);
         $_SESSION['join'] = $_POST;
-        $_SESSION['join']['picture_type'] = $type;
-        $_SESSION['join']['profile_picture'] = $content;
+        $_SESSION['join']['image_type'] = $type;
+        $_SESSION['join']['profile_image'] = $content;
 
         header('Location: check.php');
         exit();
@@ -123,10 +124,10 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
                 </div>
                 <div class="form-group">
                     <label>プロフィール写真：</label>
-                    <input type="file" name="profile_picture" value="test">
+                    <input type="file" name="profile_image" value="test">
                 </div>
                 <input class="btn btn-danger" type="submit" value="入力内容を確認する">
-                <?php if ($error['profile_picture'] === 'type'): ?>
+                <?php if ($error['profile_image'] === 'type'): ?>
                     <p class="error">*写真は「.jpg」「.gif」「.png」の画像を指定してください</p>
                 <?php endif; ?>
                 <?php if (!empty($error)): ?>

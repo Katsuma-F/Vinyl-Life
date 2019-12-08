@@ -9,7 +9,8 @@ if (empty($_REQUEST['post_id'])) {
     exit();
 }
 
-$posts = $db->prepare('SELECT u.id, u.name, u.sns_name, p.* FROM users u, posts p WHERE u.id = p.user_id AND p.post_id = ?');
+$sql = 'SELECT u.id, u.name, u.sns_name, p.* FROM users u, posts p WHERE u.id = p.user_id AND p.post_id = ?';
+$posts = $db->prepare($sql);
 $posts->execute(array($_REQUEST['post_id']));
 
 ?>

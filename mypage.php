@@ -76,9 +76,7 @@ include('./posts/myposts.php');
                 <?php print(htmlspecialchars($user['sns_name'], ENT_QUOTES)); ?>
             </p>
         </div>
-        <center>
-            <a href="#" class="btn btn-danger col-12 mb-4 mx-auto" data-toggle="modal" data-target="#myModal">パーツセットを作成する</a>
-        </center>
+        <a href="#" class="btn btn-danger col-12 mb-4 mx-auto" data-toggle="modal" data-target="#myModal">パーツセットを作成する</a>
 
         <!-- My-Card-Items -->
         <div class="row">
@@ -166,7 +164,7 @@ include('./posts/myposts.php');
                         <input type="hidden">
                         <p>
                             <label for="id_file">※セットの写真：</label>
-                            <input type="file" name="image" value="test" id="id_file" required>
+                            <input type="file" name="post_image" value="test" id="id_file" required>
                         </p>
                         <p>*写真は「.jpg」「.gif」「.png」の画像を指定してください</p>
                         <p>
