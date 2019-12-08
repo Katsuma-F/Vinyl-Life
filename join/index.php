@@ -126,7 +126,7 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label>プロフィール写真：</label>
+                    <label>プロフィール画像：</label>
                     <input type="file" name="profile_image" value="test">
                 </div>
                 <input class="btn btn-danger" type="submit" value="入力内容を確認する">

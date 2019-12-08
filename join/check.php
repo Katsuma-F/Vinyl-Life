@@ -66,7 +66,7 @@ if (!empty($_POST)) {
                     <dd><?php print(htmlspecialchars($_SESSION['join']['user_id'], ENT_QUOTES)); ?></dd>
                     <dt>パスワード</dt>
                     <dd>【表示されません】</dd>
-                    <dt>プロフィール写真</dt>
+                    <dt>プロフィール画像</dt>
                     <?php if ($_SESSION['join']['profile_image'] != ''): ?>
                         <dd>【表示されません】</dd>
                     <?php else: ?>

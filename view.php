@@ -58,7 +58,7 @@ $posts->execute(array($_REQUEST['post_id']));
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="UserImgLoad.php?id=<?php print(htmlspecialchars($user['id'], ENT_QUOTES)); ?>" class="rounded"
-                            alt="プロフィール写真" style="width: 30px; height: 30px; margin-right: 10px">
+                            alt="プロフィール画像" style="width: 30px; height: 30px; margin-right: 10px">
                             <span><?php print(htmlspecialchars($user['name'], ENT_QUOTES)); ?></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="userMenu">
@@ -86,7 +86,7 @@ $posts->execute(array($_REQUEST['post_id']));
                         </div>
                         <div class="profile-area">
                             <div class="profile-thum">
-                                <img src="UserImgLoad.php?id=<?php print(htmlspecialchars($post['id'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール写真">
+                                <img src="UserImgLoad.php?id=<?php print(htmlspecialchars($post['id'], ENT_QUOTES)); ?>" class="rounded-circle" alt="プロフィール画像">
                             </div>
                             <div class="profile-username">
                                 <p class="profile-username"><?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?></p>
