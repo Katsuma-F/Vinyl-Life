@@ -114,7 +114,7 @@ $posts->execute(array($_REQUEST['post_id']));
                     </div>
                 </div>
             <?php else: ?>
-              <p>その投稿は削除されたか、URLが間違えています</p>
+                <p>その投稿は削除されたか、URLが間違えています</p>
             <?php endif; ?>
 
         </div>
