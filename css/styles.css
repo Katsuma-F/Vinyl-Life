@@ -98,7 +98,6 @@ body {
     width: 80%;
     color: #999;
     font-size: 12px;
-    overflow: none;
 }
 
 .card .record-player-area, .speaker-area, .phono-equalizer-area, .amplifier-area, .other-parts-area, .description-area {
@@ -207,7 +206,6 @@ body {
     color: #222;
     font-weight: bold;
     font-size: 18px;
-    overflow: none;
 }
 
 .user-area .user-sns {
@@ -215,5 +213,4 @@ body {
     top: 35px;
     left: 100px;
     font-size: 16px;
-    overflow: none;
 }
