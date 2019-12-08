@@ -46,7 +46,7 @@ if (!empty($_POST)) {
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand text-light" href="../index.php">
-                <img src="../img/record_player.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+                <img src="../img/music_chikuonki.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
                 Vinyl-Life
             </a>
         </div>
