@@ -113,7 +113,8 @@ include('./posts/myposts.php');
                             </div>
                             <div class="description-area"><?php print(htmlspecialchars($post['description'], ENT_QUOTES)); ?></div>
                             <div class="info-area">
-                                <a href="#" class="text-primary" data-toggle="modal" data-target="#myDeleteModal58">
+                                <a href="#" class="text-primary" data-toggle="modal"
+                                data-target="#myDeleteModal<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>">
                                     <i class="fas fa-trash-alt" style="margin-right: 4px;"></i>
                                     削除
                                 </a>
@@ -122,7 +123,8 @@ include('./posts/myposts.php');
                     </div>
 
                     <!-- 削除のモーダル設定 -->
-                    <div class="modal fade" id="myDeleteModal58" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                    <div class="modal fade" id="myDeleteModal<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>" tabindex="-1"
+                      role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -134,7 +136,7 @@ include('./posts/myposts.php');
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <div class="modal-body">
                                         <input type="hidden">
-                                        <p>本当に削除してもよろしいでしょうか？</p>
+                                        <p>本当に「<?php print(htmlspecialchars($post['title'], ENT_QUOTES)); ?>」を削除してもよろしいでしょうか？</p>
                                         <input type="hidden" name="folder_pk">
                                     </div>
                                     <div class="modal-footer">
