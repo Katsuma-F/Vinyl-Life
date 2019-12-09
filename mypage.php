@@ -124,7 +124,7 @@ include('./posts/myposts.php');
 
                     <!-- 削除のモーダル設定 -->
                     <div class="modal fade" id="myDeleteModal<?php print(htmlspecialchars($post['post_id'], ENT_QUOTES)); ?>" tabindex="-1"
-                      role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                    role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
