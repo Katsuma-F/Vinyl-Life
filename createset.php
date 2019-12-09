@@ -9,23 +9,32 @@ if (!empty($_POST)) {
         }
 
         if (empty($error) && $_POST['title'] !== '' && $_POST['record_player'] !== '' && $_POST['speaker'] !== '' && $_POST['description'] !== '') {
-            // 投稿画像データを各変数に代入
-            $type = $_FILES['post_image']['type'];
-            $content = file_get_contents($_FILES['post_image']['tmp_name']);
+            // 投稿データを各変数に代入
+            $imageType = $_FILES['post_image']['type'];
+            $imageContent = file_get_contents($_FILES['post_image']['tmp_name']);
+            $title = $_POST['title'];
+            $recordPlayer = $_POST['record_player'];
+            $speaker = $_POST['speaker'];
+            $phonoEqualizer = $_POST['phono_equalizer'];
+            $amplifier = $_POST['amplifier'];
+            $otherParts = $_POST['other_parts'];
+            $description = $_POST['description'];
+            $userID = $user['id'];
+
             // パーツセットの情報をデータベースに保存
             $sql = 'INSERT INTO posts (image_type, image_content, title, record_player, speaker, phono_equalizer, amplifier, other_parts, description, user_id, created_at)
                     VALUES (:image_type, :image_content, :title, :record_player, :speaker, :phono_equalizer, :amplifier, :other_parts, :description, :user_id, NOW())';
             $posts = $db->prepare($sql);
-            $posts->bindValue(':image_type', $type, PDO::PARAM_STR);
-            $posts->bindValue(':image_content', $content, PDO::PARAM_STR);
-            $posts->bindValue(':title', $_POST['title'], PDO::PARAM_STR);
-            $posts->bindValue(':record_player', $_POST['record_player'], PDO::PARAM_STR);
-            $posts->bindValue(':speaker', $_POST['speaker'], PDO::PARAM_STR);
-            $posts->bindValue(':phono_equalizer', $_POST['phono_equalizer'], PDO::PARAM_STR);
-            $posts->bindValue(':amplifier', $_POST['amplifier'], PDO::PARAM_STR);
-            $posts->bindValue(':other_parts', $_POST['other_parts'], PDO::PARAM_STR);
-            $posts->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
-            $posts->bindValue(':user_id', $user['id'], PDO::PARAM_STR);
+            $posts->bindValue(':image_type', $imageType, PDO::PARAM_STR);
+            $posts->bindValue(':image_content', $imageContent, PDO::PARAM_STR);
+            $posts->bindValue(':title', $title, PDO::PARAM_STR);
+            $posts->bindValue(':record_player', $recordPlayer, PDO::PARAM_STR);
+            $posts->bindValue(':speaker', $speaker, PDO::PARAM_STR);
+            $posts->bindValue(':phono_equalizer', $phonoEqualizer, PDO::PARAM_STR);
+            $posts->bindValue(':amplifier', $amplifier, PDO::PARAM_STR);
+            $posts->bindValue(':other_parts', $otherParts, PDO::PARAM_STR);
+            $posts->bindValue(':description', $description, PDO::PARAM_STR);
+            $posts->bindValue(':user_id', $userID, PDO::PARAM_STR);
             $posts->execute();
         }
     }
