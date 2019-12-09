@@ -19,7 +19,7 @@ if (!empty($_POST)) {
             $amplifier = $_POST['amplifier'];
             $otherParts = $_POST['other_parts'];
             $description = $_POST['description'];
-            $userID = $user['id'];
+            $userId = $user['id'];
 
             // パーツセットの情報をデータベースに保存
             $sql = 'INSERT INTO posts (image_type, image_content, title, record_player, speaker, phono_equalizer, amplifier, other_parts, description, user_id, created_at)
@@ -34,7 +34,7 @@ if (!empty($_POST)) {
             $posts->bindValue(':amplifier', $amplifier, PDO::PARAM_STR);
             $posts->bindValue(':other_parts', $otherParts, PDO::PARAM_STR);
             $posts->bindValue(':description', $description, PDO::PARAM_STR);
-            $posts->bindValue(':user_id', $userID, PDO::PARAM_STR);
+            $posts->bindValue(':user_id', $userId, PDO::PARAM_STR);
             $posts->execute();
         }
     }
